@@ -5,10 +5,13 @@
   --color-primary: #c59d5f;
   --color-secondary: #f1f1f1;
   --color-accent: #a2a4a7;
-  --font-sans: 'Roboto', sans-serif;
+  --color-text-form: #ffffff;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-heading: 'Roboto Slab', serif;
   --spacing: 16px;
 }
+
+/* Dica: para manter ícones padronizados e mais leves, prefira SVGs inlined ou fontes de ícones (ex: Font Awesome) em vez de imagens pesadas. */
 
 /* Reset e corpo */
 * {
@@ -96,15 +99,17 @@ p {
   gap: 8px;
 }
 
-/* Sociais */
+/* Redes sociais */
 .redes-sociais {
   display: flex;
   gap: var(--spacing);
   margin-top: var(--spacing);
 }
 .icone-rede-social {
+  display: inline-block;
   width: 48px;
-  filter: invert(100%);
+  height: 48px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 .icone-rede-social:hover {
@@ -126,13 +131,26 @@ input, textarea, select {
   border-radius: 8px;
   border: 1px solid #333;
   background: rgba(255, 255, 255, 0.1);
-  color: var(--color-secondary);
+  color: var(--color-text-form);
+  min-height: 48px;
+  line-height: 1.4;
   transition: border-color 0.3s ease;
+}
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><path fill='%23f1f1f1' d='M7 8L0 0h14z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px 8px;
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--color-primary);
 }
+
 button {
   background-color: var(--color-primary);
   color: var(--color-bg);
@@ -142,6 +160,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
+  min-height: 48px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 button:hover {
@@ -179,4 +198,3 @@ button:hover {
     max-width: 300px;
   }
 }
-
