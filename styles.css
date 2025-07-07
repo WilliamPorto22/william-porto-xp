@@ -18,7 +18,8 @@
 /* Body e background */
 body {
   font-family: var(--font-sans);
-  background: var(--color-bg) url('imagens/fundi.jpg') no-repeat center/cover fixed;
+  /* Usando imagem atualizada */
+  background: var(--color-bg) url('imagens/fundi.jpg.png') no-repeat center/cover fixed;
   color: var(--color-secondary);
   position: relative;
   line-height: 1.6;
