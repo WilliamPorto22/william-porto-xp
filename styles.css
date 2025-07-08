@@ -1,6 +1,6 @@
-/* styles.css */
+/* styles.css - Refinado e otimizado para alto nível de profissionalismo */
 
-/* 1. Importa a fonte Poppins */
+/* 1. Importa fonte Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* 2. Variáveis de tema */
@@ -9,119 +9,47 @@
   --font-heading:     'Poppins', sans-serif;
 
   --color-bg:         #0e1116;
-  --color-overlay:    rgba(14, 17, 22, 0.85);
-  --overlay-start:    rgba(14, 17, 22, 0);
-  --overlay-end:      rgba(14, 17, 22, 0.85);
   --color-primary:    #c59d5f;
   --color-secondary:  #f1f1f1;
   --color-accent:     #a2a4a7;
-  --color-text-form:  #ffffff;
+  --color-overlay-start: rgba(14,17,22,0);
+  --color-overlay-end:   rgba(14,17,22,0.85);
 
   --spacing:          16px;
-  --max-container:    1000px;
+  --icon-size:        24px;
+  --container-max:    1000px;
 }
-
-/* Garante que todo <img class="icone"> tenha o mesmo tamanho */
-.icone {
-  width: 32px;        /* ajuste para o tamanho que você quer */
-  height: 32px;       /* idem */
-  object-fit: contain;/* mantém a proporção interna da imagem */
-  display: inline-block;
-}
-
-/* Se quiser alinhar icon + texto centralizado verticalmente */
-.guia .link {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* espaçamento entre ícone e texto */
-}
-
-/* 1) Torna todo link um flex alinhado */
-.navegacao .link {
-  display: flex;
-  align-items: center;
-  gap: 12px;           /* espaço entre ícone, texto e seta */
-  padding: 8px 16px;   /* só pra deixar o botão “mais clicável” */
-  text-decoration: none;
-}
-
-/* 2) Padroniza o tamanho de TODOS os <img> dentro do link */
-.navegacao .link img {
-  width: 24px;         /* defina o tamanho que preferir */
-  height: 24px;
-  object-fit: contain; /* mantém proporção interna */
-  flex-shrink: 0;      /* não deixa encolher além disso */
-}
-
-/* 3) Se quiser diferenciar a seta, só sobrescreva */
-.icone-seta {
-  width: 16px;         /* seta um pouco menor */
-  height: 16px;
-  margin-left: auto;   /* empurra pra direita */
-}
-
-/* 4) Faz o <p> ocupar o espaço restante e zerar margens */
-.navegacao .link p {
-  margin: 0;
-  flex: 1;
-  color: inherit;      /* herda cor do link */
-}
-
-/* Container que vai “cortar” a imagem em círculo */
-.image-container {
-  width: clamp(150px, 20vw, 250px); /* mínimo 150px, máximo 250px, cresce conforme a largura da tela */
-  height: clamp(150px, 20vw, 250px);
-  border-radius: 50%;               /* formato circular */
-  overflow: hidden;                 /* esconde as partes da img que ultrapassam o círculo */
-  margin: 0 auto;                   /* centraliza horizontalmente */
-}
-
-/* Ajuste da própria imagem para preencher o container sem distorcer */
-.image-container .foto {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* mantém proporção e preenche todo o círculo */
-  display: block;      /* elimina possíveis espaços em branco */
-}
-
 
 /* 3. Reset básico */
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* 4. Body, background e overlay */
+/* 4. Tipografia e corpo */
+html { font-family: var(--font-sans); line-height: 1.6; }
 body {
-  font-family: var(--font-sans) !important;
-  background: var(--color-bg) url('imagens/fundi.jpg.png') no-repeat center/cover fixed !important;
-  color: var(--color-secondary) !important;
-  line-height: 1.6;
   position: relative;
+  background: var(--color-bg) url('imagens/fundi.jpg.png') center/cover fixed;
+  color: var(--color-secondary);
 }
 body::before {
   content: '';
-  position: absolute;
-  top: 0; left: 0;
+  position: absolute; top: 0; left: 0;
   width: 100%; height: 100%;
   background: linear-gradient(
     180deg,
-    var(--overlay-start) 0%,
-    var(--overlay-end)   100%
+    var(--color-overlay-start) 0%,
+    var(--color-overlay-end)   100%
   );
   z-index: -1;
 }
 
-/* 5. Espaçamento reutilizável */
-.espaco-24px {
-  height: 24px;
-}
-
-/* 6. Container central */
+/* 5. Container central */
 .container-principal {
-  max-width: var(--max-container);
   width: 90%;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: calc(var(--spacing) * 2);
   background: rgba(255,255,255,0.05);
@@ -135,63 +63,36 @@ body::before {
   z-index: 1;
 }
 
-/* 7. Títulos e alinhamento */
-.div-titulo {
-  text-align: center;
-}
+/* 6. Espaçamento utilitário */
+.espaco-24px { height: 24px; }
+
+/* 7. Títulos */
 h1, h2, h3 {
-  font-family: var(--font-heading) !important;
-  color: var(--color-primary) !important;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
   text-align: center;
 }
 h1 {
-  font-size: clamp(2.5rem,5vw,4rem);
-  margin-bottom: var(--spacing);
+  font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: 1px;
   text-shadow: 0 2px 4px rgba(0,0,0,0.7);
 }
 h2 {
-  font-size: clamp(1.75rem,4vw,2.5rem);
-  margin-bottom: var(--spacing);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 }
-h2 span {
-  color: var(--color-primary) !important;
-}
-h3 {
-  font-size: 1.25rem;
-  margin-bottom: var(--spacing);
-}
+h3 { font-size: 1.25rem; }
 
-/* 8. Parágrafos e texto de formulário */
-p, label {
-  font-family: var(--font-sans) !important;
-  color: var(--color-secondary) !important;
-  text-align: center;
-}
-p {
-  margin-bottom: var(--spacing);
-  max-width: 700px;
-}
-p.texto-form {
-  margin-bottom: var(--spacing);
-}
-p.consentimento {
-  font-size: 0.85rem;
-  margin-top: var(--spacing);
-}
-
-/* 9. Imagem de perfil corrigida */
-.imagem {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto var(--spacing);
+/* 8. Imagem circular de perfil */
+.image-container {
+  width: clamp(150px, 20vw, 250px);
+  aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
-  position: relative;
+  margin: 0 auto;
 }
-.imagem img.foto {
+.image-container img {
   display: block;
   width: 100%;
   height: 100%;
@@ -200,40 +101,58 @@ p.consentimento {
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
 
-/* 10. Navegação e ícones */
+/* 9. Navegação de links */
 .navegacao {
   display: flex;
-  gap: var(--spacing);
   flex-wrap: wrap;
   justify-content: center;
+  gap: var(--spacing);
   margin-bottom: var(--spacing);
 }
-.guia {
-  background-color: rgba(65,57,57,0.7);
+.navegacao .guia {
+  background: rgba(65,57,57,0.7);
   padding: 8px 12px;
   border-radius: 8px;
   transition: background 0.3s;
 }
-.guia:hover {
-  background-color: rgba(65,57,57,0.9);
+.navegacao .guia:hover {
+  background: rgba(65,57,57,0.9);
 }
-.link {
+.navegacao .link {
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 8px 16px;
   text-decoration: none;
-  color: var(--color-secondary) !important;
+  color: var(--color-secondary);
   font-weight: 600;
 }
+.navegacao .link img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.navegacao .link .icone-seta {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+}
+.navegacao .link p {
+  flex: 1;
+  margin: 0;
+}
 
-/* 11. Redes sociais */
+/* 10. Redes sociais */
 .redes-sociais {
   display: flex;
-  gap: var(--spacing);
   justify-content: center;
+  gap: var(--spacing);
+  margin-bottom: var(--spacing);
 }
 .icone-rede-social {
-  width: 48px; height: 48px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
   transition: transform 0.3s;
 }
@@ -241,7 +160,7 @@ p.consentimento {
   transform: scale(1.1);
 }
 
-/* 12. Formulário (inputs e botão) */
+/* 11. Formulário */
 form {
   width: 100%;
   display: flex;
@@ -251,68 +170,64 @@ form {
 .campo {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing);
+  gap: 4px;
 }
 .campo label {
-  margin-bottom: 4px;
-  color: var(--color-secondary) !important;
+  color: var(--color-secondary);
+  font-weight: 500;
 }
 .campo input,
 .campo select,
 .campo textarea {
   padding: 12px;
   font-size: 1rem;
-  border-radius: 8px;
   border: 1px solid #333;
+  border-radius: 8px;
   background: rgba(14,17,22,0.95);
-  color: var(--color-text-form) !important;
+  color: var(--color-secondary);
   transition: border-color 0.3s, background 0.3s;
 }
 .campo input:focus,
 .campo select:focus,
 .campo textarea:focus {
   outline: none;
-  border-color: var(--color-primary);
   background: rgba(14,17,22,1);
+  border-color: var(--color-primary);
 }
 button[type="submit"] {
-  background-color: var(--color-primary);
-  color: var(--color-bg) !important;
+  align-self: center;
   padding: 12px 24px;
   font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: var(--color-primary);
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background 0.3s, transform 0.2s;
 }
 button[type="submit"]:hover {
-  background-color: var(--color-accent);
+  background: var(--color-accent);
   transform: translateY(-2px);
 }
 
-/* 13. Seção “sobre” */
+/* 12. Seção Sobre */
 .sobre {
   text-align: center;
+  margin-bottom: var(--spacing);
 }
 .sobre h3,
 .sobre p {
   margin-bottom: var(--spacing);
 }
 
-/* 14. Responsividade */
+/* 13. Responsividade */
 @media (max-width: 768px) {
   .container-principal {
     padding: var(--spacing);
   }
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  .imagem {
-    width: 150px;
-    height: 150px;
-  }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.75rem; }
+  .image-container { width: 150px; }
 }
+
