@@ -1,38 +1,32 @@
-* ─── Variáveis de Tema ───────────────────────────────────────── */
+/* Estilo inspirado no Carrd.co */
 :root {
-  --bg-color: #0e1116;
-  --overlay: rgba(0, 0, 0, 0.6);
-  --gold: #d4af37;
-  --light: #ececec;
-  --gray: #a2a4a7;
-  --font-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-head: 'Roboto Slab', serif;
-  --space: 1rem;
+  --color-bg: #0e1116;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+  --color-primary: #c59d5f;
+  --color-secondary: #f1f1f1;
+  --color-accent: #a2a4a7;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'Roboto Slab', serif;
+  --spacing: 1.5rem;
 }
 
-/* ─── Reset Básico ─────────────────────────────────────────────── */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-  font-family: var(--font-base);
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-secondary);
   background: url('imagens/fundi.jpg.png') center/cover no-repeat;
   position: relative;
-  color: var(--light);
-  text-align: center;
 }
 body::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--overlay);
+  position: absolute; inset: 0;
+  background-color: var(--color-overlay);
   z-index: 0;
 }
 
-/* ─── Container Principal ─────────────────────────────────────── */
+/* Container principal fullscreen */
 .container-principal {
   position: relative;
   z-index: 1;
@@ -41,166 +35,150 @@ body::before {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: calc(var(--space) * 2);
-  gap: var(--space);
+  text-align: center;
+  padding: var(--spacing);
+  gap: var(--spacing);
 }
 
-/* ─── Títulos ────────────────────────────────────────────────── */
+/* Título e subtítulo */
 .div-titulo h1 {
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: 3rem;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  margin-bottom: 0.5em;
+  color: var(--color-primary);
+  letter-spacing: 2px;
 }
 .div-titulo h3 {
-  font-family: var(--font-base);
+  font-family: var(--font-sans);
   font-size: 1.25rem;
-  color: var(--light);
-  opacity: 0.85;
-  margin-bottom: 1.5em;
+  color: var(--color-secondary);
+  opacity: 0.9;
 }
 
-/* ─── Foto em Destaque ───────────────────────────────────────── */
+/* Foto em destaque */
 .imagem .foto {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 3px solid var(--gold);
+  border: 4px solid var(--color-primary);
   object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ─── Redes Sociais ──────────────────────────────────────────── */
+/* Redes sociais */
 .redes-sociais {
   display: flex;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 .icone-rede-social {
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  text-align: center;
-  background: var(--gold);
-  border-radius: 50%;
-  filter: grayscale(80%) brightness(0.9);
-  transition: filter 0.3s, transform 0.3s;
+  width: 40px; height: 40px;
+  transition: transform 0.2s ease;
 }
 .icone-rede-social:hover {
-  filter: none;
   transform: scale(1.2);
 }
 
-/* ─── Formulário ─────────────────────────────────────────────── */
+/* Formulário com estilo glassmorphism */
 .formulario {
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
-  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
   width: 100%;
-  max-width: 380px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 .formulario h2 {
-  font-family: var(--font-head);
+  font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--gold);
-  margin-bottom: 0.3em;
+  color: var(--color-primary);
 }
-.formulario label {
-  font-size: 0.9rem;
-  text-align: left;
-  display: block;
-  margin-bottom: 0.3em;
+.formulario p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
 }
 .formulario input,
 .formulario textarea,
 .formulario select {
   width: 100%;
-  padding: 0.6rem;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.2);
-  color: var(--light);
+  padding: 0.75rem;
   font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-secondary);
   transition: background 0.3s, box-shadow 0.3s;
 }
 .formulario input:focus,
 .formulario textarea:focus,
 .formulario select:focus {
   outline: none;
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 0 0 2px var(--gold);
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 .formulario button {
-  padding: 0.7rem;
+  padding: 0.75rem;
   font-size: 1rem;
   font-weight: bold;
-  color: var(--bg-color);
-  background: var(--gold);
+  color: var(--color-bg);
+  background: var(--color-primary);
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 .formulario button:hover {
-  background: var(--gray);
+  background: var(--color-accent);
   transform: translateY(-2px);
 }
 
-/* ─── Navegação (Links) ──────────────────────────────────────── */
+/* Navegação / links auxiliares */
 .navegacao {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-top: var(--space);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 .guia {
-  background: rgba(255,255,255,0.1);
-  padding: 0.6rem 1rem;
-  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
   transition: background 0.3s;
 }
 .guia:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 .link {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   text-decoration: none;
-  color: var(--light);
-  font-size: 0.95rem;
+  color: var(--color-secondary);
+  font-weight: 500;
 }
 .link .icone {
-  width: 20px;
-  height: 20px;
+  width: 24px; height: 24px;
 }
 .link .icone-seta {
   margin-left: auto;
-  width: 14px;
-  height: 14px;
+  width: 16px; height: 16px;
 }
 
-/* ─── Seção 'Sobre' ──────────────────────────────────────────── */
+/* Seção 'Sobre' simplificada */
 .sobre {
   max-width: 600px;
-  padding: 1rem;
-  font-size: 0.9rem;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-secondary);
   line-height: 1.5;
-  color: var(--light);
 }
 
-/* ─── Responsivo ─────────────────────────────────────────────── */
+/* Responsivo */
 @media (max-width: 600px) {
-  .div-titulo h1 { font-size: 2.5rem; letter-spacing: 1.5px; }
+  .formulario { padding: 1.5rem; }
+  .div-titulo h1 { font-size: 2.5rem; }
   .div-titulo h3 { font-size: 1rem; }
-  .imagem .foto { width: 140px; height: 140px; }
-  .icone-rede-social { width: 32px; height: 32px; }
-  .formulario { padding: 1rem; max-width: 320px; }
 }
