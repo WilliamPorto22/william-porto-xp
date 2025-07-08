@@ -1,4 +1,5 @@
-/* styles.css - Versão 4.4: Fundo com vinheta + textura, campos escuros e texto visível */
+/* styles.css - Versão 4.5: Fundo com vinheta + textura, scroll habilitado */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -27,43 +28,45 @@ body {
   color: var(--text-color);
   position: relative;
   min-height: 100vh;
+
+  /* Alinha conteúdo no centro horizontal, mas abre mão do align-items vertical */
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow-x: hidden; /* permite scroll vertical */
+
+  /* agora permite scroll vertical */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* ─── Fundo com foto + vinheta + textura ─── */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   z-index: -1;
   pointer-events: none;
 
   background-image:
-    /* 1) Textura geométrica (crie imagens/noise.svg) */
     url('imagens/noise.svg'),
-    /* 2) Vinheta escura de cima para baixo */
     linear-gradient(
       to bottom,
       rgba(33,33,33,0.90) 0%,
       rgba(33,33,33,0.46) 100%
     ),
-    /* 3) Imagem de fundo */
     url('imagens/fundi.jpg.png');
 
   background-size:
     auto,
     cover,
     cover;
+
   background-position:
     center,
     center,
     center;
+
   background-repeat:
     repeat,
     no-repeat,
@@ -154,7 +157,9 @@ form {
   color: var(--text-color);
 }
 
-.campo input, .campo select, .campo textarea {
+.campo input,
+.campo select,
+.campo textarea {
   width: 100%;
   padding: 12px;
   background: rgba(14,17,22,0.7);
@@ -172,7 +177,9 @@ form {
   color: var(--text-color);
 }
 
-.campo input:focus, .campo select:focus, .campo textarea:focus {
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--primary);
 }
@@ -226,7 +233,8 @@ button[type="submit"]:hover {
     width: 200px;
     height: 200px;
   }
-  .redes-sociais img, .guia img {
+  .redes-sociais img,
+  .guia img {
     width: 32px;
     height: 32px;
   }
