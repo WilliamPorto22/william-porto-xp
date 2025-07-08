@@ -1,192 +1,195 @@
-/* styles.css - Design Moderno, Glassmorphism e Animações Suaves */
+/* styles.css - Versão 3: Microinterações, bordas animadas e efeitos avançados */
 
-/* 1. Importa fonte Poppins */
+/* 1. Importa fonte Poppins e otimiza renderização */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* 2. Variáveis de tema e gradientes */
+/* 2. Variáveis de tema e gradientes dinâmicos */
 :root {
+  /* Tipografia */
   --font-sans:        'Poppins', sans-serif;
   --font-heading:     'Poppins', sans-serif;
 
-  --color-bg-start:    #0e1116;
-  --color-bg-end:      #13181f;
-  --gradient-primary:  linear-gradient(135deg, #c59d5f 0%, #a67c52 100%);
-  --gradient-accent:   linear-gradient(135deg, #f1c27d 0%, #d4a76b 100%);
-  --color-secondary:   #f1f1f1;
-  --color-overlay:     rgba(14,17,22,0.8);
+  /* Cores */
+  --color-bg:         #0e1116;
+  --color-overlay:    rgba(14,17,22,0.8);
+  --gradient-primary: linear-gradient(135deg, #c59d5f 0%, #a67c52 100%);
+  --gradient-accent:  linear-gradient(45deg, #f1c27d 0%, #d4a76b 100%);
+  --text-light:       #f1f1f1;
+  --btn-hover:        #a67c52;
 
-  --spacing:          16px;
-  --icon-size:        24px;
-  --container-max:    1000px;
-  --border-radius:    12px;
-  --transition-fast:  0.3s;
-  --transition-smooth:0.6s;
+  /* Espaçamentos e dimensões */
+  --spacing:          1rem;
+  --container-max:    60rem;
+  --border-radius:    1.25rem;
+
+  /* Transições */
+  --ease-fast:        0.3s ease;
+  --ease-slow:        0.6s ease;
+  --fade-delay:       0.5s;
 }
 
-/* 3. Reset básico e transições globais */
+/* 3. Reset simplificado */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all var(--transition-fast) ease;
+  transition: all var(--ease-fast);
 }
-html { font-family: var(--font-sans); line-height: 1.6; }
-
-/* 4. Body com gradiente dinâmico e overlay */
+html { font-family: var(--font-sans); scroll-behavior: smooth; }
 body {
+  background: var(--color-bg) fixed;
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
   position: relative;
-  min-height: 100vh;
-  background: var(--gradient-primary) no-repeat;
-  color: var(--color-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden;
+  min-height: 100vh;
 }
 body::before {
   content: '';
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: url('imagens/fundi.jpg.png') center/cover fixed;
-  opacity: 0.3;
+  position: absolute; inset: 0;
+  background: url('imagens/fundi.jpg.png') center/cover;
+  opacity: 0.2;
   z-index: -2;
 }
 body::after {
   content: '';
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: absolute; inset: 0;
   background: var(--color-overlay);
   z-index: -1;
 }
 
-/* 5. Container central com Glassmorphism */
+/* 4. Container com borda animada */
 .container-principal {
-  width: 90%;
-  max-width: var(--container-max);
-  margin: var(--spacing);
+  position: relative;
+  width: 90%; max-width: var(--container-max);
   padding: calc(var(--spacing) * 2);
   background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
   border-radius: var(--border-radius);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.7);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing);
-  text-align: center;
+}
+.container-principal::before {
+  content: '';
+  position: absolute; inset: 0;
+  padding: 3px;
+  background: var(--gradient-primary);
+  mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  animation: borderColorShift 6s linear infinite;
+}
+@keyframes borderColorShift {
+  0%,100% { background-position: 0% 50%; }
+  50%     { background-position: 100% 50%; }
 }
 
-/* 6. Títulos com animação de gradiente */
+/* 5. Títulos com entrada animada */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 h1, h2, h3 {
   font-family: var(--font-heading);
   background: var(--gradient-accent);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  animation: fadeInUp var(--ease-slow) both;
 }
-h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  letter-spacing: 1px;
-  animation: gradientShift 5s ease infinite;
-}
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
-h3 { font-size: 1.25rem; }
+h1 { font-size: clamp(2.5rem, 5vw, 4rem); animation-delay: var(--fade-delay); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); animation-delay: calc(var(--fade-delay) + 0.2s); }
+h3 { font-size: 1.25rem; animation-delay: calc(var(--fade-delay) + 0.4s); }
 
-/* 7. Perfil circular com borda brilhante */
+/* 6. Perfil circular com hover glow */
 .image-container {
-  width: clamp(150px, 20vw, 250px);
+  width: clamp(10rem, 20vw, 16rem);
   aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
-  position: relative;
-  box-shadow: 0 0 0 4px rgba(197,157,95,0.6), 0 8px 16px rgba(0,0,0,0.7);
+  box-shadow: 0 0 0 4px rgba(197,157,95,0.6);
+  animation: fadeInUp var(--ease-slow) both;
+  animation-delay: calc(var(--fade-delay) + 0.6s);
 }
 .image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--ease-slow);
+}
+.image-container:hover img {
+  transform: scale(1.05);
 }
 
-/* 8. Navegação em grid responsivo */
+/* 7. Grid de navegação com microinterações */
 .navegacao {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   gap: var(--spacing);
   width: 100%;
+  animation: fadeInUp var(--ease-slow) both;
 }
-.navegacao .guia {
+.guia {
   background: rgba(255,255,255,0.1);
   border-radius: var(--border-radius);
-  backdrop-filter: blur(6px);
-  padding: 12px;
+  backdrop-filter: blur(8px);
+  padding: var(--spacing);
   display: flex;
   align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
-.navegacao .guia:hover {
-  transform: translateY(-4px) scale(1.02);
-  background: rgba(255,255,255,0.15);
-}
-.navegacao .link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--color-secondary);
-  font-weight: 600;
-}
-.navegacao .link img {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  flex-shrink: 0;
-}
-.navegacao .link .icone-seta {
-  margin-left: auto;
-  width: 16px;
-  height: 16px;
-}
-
-/* 9. Botões e formulário com estilo moderno */
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   gap: var(--spacing);
+  cursor: pointer;
+  transform-style: preserve-3d;
 }
-.campo {
+.guia:hover {
+  transform: translateY(-6px) rotate3d(1,1,0,2deg) scale(1.03);
+}
+.link {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 600;
+  position: relative;
 }
-.campo label {
-  margin-bottom: 4px;
-  font-weight: 500;
-  text-align: left;
+.link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 2px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ease-fast);
 }
-.campo input,
-.campo select,
-.campo textarea {
-  padding: 12px;
-  font-size: 1rem;
+.link:hover::after {
+  transform: scaleX(1);
+}
+.link img { width: var(--icon-size); height: var(--icon-size); }
+
+/* 8. Formulário estilizado */
+form { width: 100%; display: flex; flex-direction: column; gap: var(--spacing); }
+.campo { display: flex; flex-direction: column; gap: 0.25rem; }
+.campo label { font-weight: 500; text-align: left; }
+.campo input, .campo select, .campo textarea {
+  padding: 0.75rem;
   border: none;
   border-radius: var(--border-radius);
   background: rgba(255,255,255,0.05);
-  color: var(--color-secondary);
+  color: var(--text-light);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
 }
-.campo input:focus,
-.campo select:focus,
-.campo textarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-primary);
+.campo:focus-within input,
+.campo:focus-within select,
+.campo:focus-within textarea {
+  box-shadow: 0 0 0 2px var(--gradient-primary);
 }
 button[type="submit"] {
   align-self: center;
-  padding: 12px 24px;
+  padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   background: var(--gradient-primary);
@@ -195,22 +198,20 @@ button[type="submit"] {
   color: #111;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  transition: background var(--ease-fast), transform var(--ease-fast);
 }
 button[type="submit"]:hover {
-  transform: scale(1.05);
-  background: var(--gradient-accent);
+  transform: translateY(-3px) scale(1.05);
+  background: var(--btn-hover);
 }
 
-/* 10. Seção Sobre */
-.sobre {
-  margin-top: var(--spacing);
-}
-.sobre p { max-width: 700px; margin: var(--spacing) auto; line-height: 1.5; }
+/* 9. Seção Sobre com fade adicional */
+.sobre { animation: fadeInUp var(--ease-slow) both; animation-delay: calc(var(--fade-delay) + 0.8s); }
+.sobre p { max-width: 40rem; margin: var(--spacing) auto; line-height: 1.6; }
 
-/* 11. Responsividade */
+/* 10. Ajustes responsivos */
 @media (max-width: 768px) {
   .container-principal { padding: var(--spacing); }
   h1 { font-size: 2.5rem; }
-  h2 { font-size: 1.75rem; }
-  .image-container { width: 150px; }
+  .image-container { width: 10rem; }
 }
