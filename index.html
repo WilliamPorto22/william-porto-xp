@@ -5,18 +5,129 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>William Porto | Assessor de Investimentos XP</title>
   <meta name="description" content="Consultoria estratégica de investimentos com William Porto. Conquiste sua independência financeira com sabedoria, ética e resultados comprovados." />
-  <link rel="canonical" href="https://seusite.com.br" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="William Porto | Assessor de Investimentos XP" />
-  <meta property="og:description" content="Consultoria estratégica de investimentos com William Porto. Conquiste sua independência financeira com sabedoria, ética e resultados comprovados." />
-  <meta property="og:image" content="https://seusite.com.br/imagens/preview.jpg" />
-  <meta property="og:url" content="https://seusite.com.br" />
-  <meta property="og:type" content="website" />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="styles-improved.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <style>
+  /* Reset e base */
+  *, *::before, *::after {box-sizing:border-box; margin:0; padding:0;}
+  html {scroll-behavior:smooth;}
+  body {
+    font-family: 'Poppins', sans-serif;
+    background:#0e1116 url('imagens/fundi.jpg') center/cover fixed;
+    color:#e5e5e5;
+    line-height:1.6;
+    position:relative;
+  }
+  body::before {
+    content:''; position:fixed; inset:0;
+    background:rgba(14,17,22,0.7); z-index:-1;
+  }
+  a {text-decoration:none; color:inherit;}
+  img {display:block; max-width:100%; height:auto;}
+
+  /* Container */
+  .container-principal {
+    max-width:1000px; width:90%; margin:2rem auto;
+    padding:2rem; background:rgba(255,255,255,0.04);
+    border-radius:1rem; box-shadow:0 12px 32px rgba(0,0,0,0.6);
+    display:flex; flex-direction:column; align-items:center;
+    gap:1.5rem;
+  }
+
+  /* Header */
+  .header-principal {text-align:center;}
+  .header-principal h1 {
+    font-family:'Merriweather', serif; font-size:clamp(3rem,6vw,5rem);
+    color:#c59d5f; letter-spacing:1px; margin-bottom:0.5rem;
+    text-shadow:0 3px 6px rgba(0,0,0,0.7);
+  }
+  .header-principal .subtitulo {
+    font-size:1.25rem; font-weight:500; color:#f3bb6b;
+  }
+  .header-principal .tagline {
+    font-style:italic; font-family:'Merriweather', serif;
+    color:#f1f1f1; margin-top:0.25rem;
+  }
+
+  /* Foto */
+  .foto-perfil img {
+    width:220px; height:220px; border-radius:50%;
+    border:4px solid #c59d5f; box-shadow:0 6px 20px rgba(0,0,0,0.7);
+    object-fit:cover;
+  }
+
+  /* Redes sociais */
+  .redes-sociais ul {display:flex; gap:1rem; list-style:none;}
+  .redes-sociais img {width:40px; transition:transform 0.3s;}
+  .redes-sociais img:hover {transform:scale(1.2);}
+
+  /* Formulário */
+  main {width:100%;}
+  .formulario h2 {
+    font-family:'Merriweather', serif; color:#c59d5f;
+    font-size:clamp(2rem,4vw,3rem); text-align:center;
+    margin-bottom:1rem;
+  }
+  .formulario p {text-align:center; margin-bottom:1.5rem;}
+  form {display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;}
+  fieldset {grid-column:span 2; border:none;}
+  .campo {display:flex; flex-direction:column;}
+  .campo label {margin-bottom:0.25rem; font-weight:500;}
+  .campo input, .campo select, .campo textarea {
+    padding:0.75rem; border-radius:1rem; border:none;
+    background:rgba(14,17,22,0.8); color:#e5e5e5;
+    font-size:1rem;
+  }
+  .campo input:focus, .campo select:focus, .campo textarea:focus {
+    outline:2px solid #c59d5f;
+  }
+  .btn-enviar {
+    grid-column:span 2; justify-self:center;
+    background:linear-gradient(45deg,#c59d5f,#f3bb6b);
+    padding:1rem 2rem; font-size:1.1rem; font-weight:600;
+    border:none; border-radius:1rem; cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.5);
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-enviar:hover {
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(0,0,0,0.6);
+  }
+  .consentimento {font-size:0.85rem; text-align:center; grid-column:span 2;}
+
+  /* Links úteis */
+  .links-uteis h2 {display:none;}
+  .navegacao {display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center;}
+  .guia {
+    display:flex; align-items:center; gap:0.5rem;
+    background:rgba(255,255,255,0.1); padding:0.75rem 1rem;
+    border-radius:1rem; transition:background 0.3s;
+  }
+  .guia:hover {background:rgba(255,255,255,0.2);}
+  .guia .icone {width:30px;}
+
+  /* Sobre / Filosofia */
+  .sobre {text-align:center; padding:1.5rem 1rem;}
+  .sobre blockquote {
+    font-style:italic; margin:1.5rem auto;
+    max-width:600px; border-left:4px solid #c59d5f;
+    padding-left:1rem; color:#f1f1f1;
+  }
+  .sobre .assinatura {margin-top:1rem; color:#c59d5f; font-weight:600;}
+
+  /* Responsividade */
+  @media (max-width:768px) {
+    form {grid-template-columns:1fr;} .btn-enviar {width:100%;}
+    .foto-perfil img {width:180px; height:180px;}
+    .header-principal h1 {font-size:3rem;}
+    .formulario h2 {font-size:2rem;}
+  }
+
+  /* Animação de entrada */
+  @keyframes fadeInUp {from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+  .container-principal > * {animation:fadeInUp 0.8s ease-out both;}
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
@@ -42,7 +153,7 @@
     <main id="main-content">
       <section class="formulario" aria-labelledby="titulo-formulario">
         <h2 id="titulo-formulario">Pronto para trilhar o caminho da liberdade financeira?</h2>
-        <p class="texto-form">Deixe seus dados e receba um planejamento sob medida, com estratégias testadas e visão de longo prazo.</p>
+        <p>Deixe seus dados e receba um planejamento sob medida, com estratégias testadas e visão de longo prazo.</p>
         <form id="contatoForm" action="https://formcarry.com/s/KzpmIQo0Dg_" method="POST">
           <fieldset>
             <legend>Dados de Contato</legend>
@@ -52,7 +163,7 @@
             </div>
             <div class="campo">
               <label for="telefone">WhatsApp</label>
-              <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}" title="Formato: (99) 99999-9999" />
+              <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required maxlength="15" pattern="\(\d{2}\) \d{4,5}-\d{4}" title="Formato: (99) 99999-9999" />
             </div>
           </fieldset>
 
@@ -62,23 +173,23 @@
               <label for="patrimonioLiquido">Patrimônio líquido atual</label>
               <select id="patrimonioLiquido" name="patrimonioLiquido" required>
                 <option value="" disabled selected>Selecione...</option>
-                <option value="0-20000">R$ 0 a R$ 20.000</option>
-                <option value="20000-50000">R$ 20.000 a R$ 50.000</option>
-                <option value="50000-100000">R$ 50.000 a R$ 100.000</option>
-                <option value="100000-300000">R$ 100.000 a R$ 300.000</option>
-                <option value="300000-1000000">R$ 300.000 a R$ 1.000.000</option>
-                <option value="1000000-10000000">R$ 1.000.000 a R$ 10.000.000</option>
-                <option value=">10000000">Acima de R$ 10.000.000</option>
+                <option value="0-20000">R$ 0 a R$ 20.000</option>
+                <option value="20000-50000">R$ 20.000 a R$ 50.000</option>
+                <option value="50000-100000">R$ 50.000 a R$ 100.000</option>
+                <option value="100000-300000">R$ 100.000 a R$ 300.000</option>
+                <option value="300000-1000000">R$ 300.000 a R$ 1.000.000</option>
+                <option value="1000000-10000000">R$ 1.000.000 a R$ 10.000.000</option>
+                <option value=">10000000">Acima de R$ 10.000.000</option>
               </select>
             </div>
             <div class="campo">
               <label for="investimentoMensal">Investimento mensal aproximado</label>
               <select id="investimentoMensal" name="investimentoMensal" required>
                 <option value="" disabled selected>Selecione...</option>
-                <option value="0-500">R$ 0 a R$ 500</option>
-                <option value="500-1500">R$ 500 a R$ 1.500</option>
-                <option value="1500-10000">R$ 1.500 a R$ 10.000</option>
-                <option value=">10000">Acima de R$ 10.000</option>
+                <option value="0-500">R$ 0 a R$ 500</option>
+                <option value="500-1500">R$ 500 a R$ 1.500</option>
+                <option value="1500-10000">R$ 1.500 a R$ 10.000</option>
+                <option value=">10000">Acima de R$ 10.000</option>
               </select>
             </div>
           </fieldset>
@@ -91,59 +202,12 @@
             </div>
           </fieldset>
 
-          <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim" />
           <button type="submit" class="btn-enviar">Quero meu plano agora</button>
           <p class="consentimento">Ao enviar, você concorda com o uso dos seus dados para contato e assessoria.</p>
-          <noscript><p class="consentimento">Por favor, ative o JavaScript para enviar o formulário.</p></noscript>
-          <div id="mensagemStatus" aria-live="polite"></div>
         </form>
       </section>
 
-      <section class="links-uteis" aria-labelledby="titulo-links">
-        <h2 id="titulo-links">Acesse nossas Ferramentas</h2>
-        <nav class="navegacao">
-          <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498" class="guia" rel="noopener noreferrer">
-            <img src="imagens/xp.png" alt="XP Investimentos" class="icone" />
-            <span>Abra sua conta XP</span>
-            <img src="imagens/seta.png" alt="" class="icone-seta" />
-          </a>
-          <a href="https://api.whatsapp.com/send/?phone=5551993563021" class="guia" rel="noopener noreferrer">
-            <img src="imagens/whats.png" alt="WhatsApp" class="icone" />
-            <span>Conectar no WhatsApp</span>
-            <img src="imagens/seta.png" alt="" class="icone-seta" />
-          </a>
-          <a href="https://avel.me/calculadora-juros-compostos/" class="guia" rel="noopener noreferrer">
-            <img src="imagens/calc.png" alt="Calculadora" class="icone" />
-            <span>Calculadora de Juros</span>
-            <img src="imagens/seta.png" alt="" class="icone-seta" />
-          </a>
-        </nav>
-      </section>
-
-      <section class="sobre" aria-labelledby="titulo-sobre">
-        <h2 id="titulo-sobre">Rumo à Liberdade Financeira</h2>
-        <p><strong>Muitos me perguntam:</strong> <em>“Como garantir prosperidade sustentável?”</em></p>
-        <p>Investir é unir arte e ciência: análise técnica, disciplina e paciência para colher resultados sólidos.</p>
-        <blockquote class="citar">“O comportamento de investir é mais importante do que a inteligência.” – Warren Buffett</blockquote>
-        <p>Como lembra Maimônides: <em>“Quem poupa hoje, assegura o amanhã.”</em></p>
-        <p class="assinatura">Ável | Assessoria credenciada à XP Investimentos<br />Premiada como TOP 1 XP 2024</p>
-      </section>
-    </main>
-
-    <footer class="footer-principal">
-      <p>&copy; 2025 William Porto — Todos os direitos reservados.</p>
-    </footer>
-  </div>
-
-  <!-- Analytics (exemplo) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}  
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
-  </script>
-
-  <script src="script.js" defer></script>
-</body>
-</html>
+      <section class="links-uteis">
+        <nav class="navegacao" aria-label="Links úteis">
+          <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498" class="guia">…</a>
+          <a href="https://api.whatsapp.com/send/?phone=5551993563021" class="guia">…</a>
