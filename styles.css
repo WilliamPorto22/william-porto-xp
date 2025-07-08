@@ -1,74 +1,68 @@
 /* styles.css */
 
-/*--------------------------------------------------
-  0. Importe a fonte Poppins do Google Fonts
----------------------------------------------------*/
+/* 1. Importa a fonte Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/*--------------------------------------------------
-  1. Variáveis de tema (mantendo seu fundo escuro e overlay)
----------------------------------------------------*/
+/* 2. Variáveis de tema */
 :root {
   --font-sans: 'Poppins', sans-serif;
   --font-heading: 'Poppins', sans-serif;
 
-  /* cores originais ajustadas */
-  --color-bg: #0e1116;
-  --color-overlay: rgba(14, 17, 22, 0.85);
-  --color-primary: #c59d5f;    /* títulos em dourado */
-  --color-secondary: #f1f1f1;  /* texto normal em branco */
-  --color-accent: #a2a4a7;
+  --color-bg:        #0e1116;
+  --color-overlay:   rgba(14, 17, 22, 0.85);
+  --overlay-start:   rgba(14, 17, 22, 0);
+  --overlay-end:     rgba(14, 17, 22, 0.85);
+  --color-primary:   #c59d5f;
+  --color-secondary: #f1f1f1;
+  --color-accent:    #a2a4a7;
   --color-text-form: #ffffff;
 
-  --spacing: 16px;
-  --max-container: 1000px;
+  --spacing:      16px;
+  --max-container:1000px;
 }
 
-/*--------------------------------------------------
-  2. Reset básico
----------------------------------------------------*/
+/* 3. Reset básico */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/*--------------------------------------------------
-  3. Body, background e overlay
----------------------------------------------------*/
+/* 4. Body, background e overlay */
 body {
-  font-family: var(--font-sans);
-  background: var(--color-bg) url('imagens/fundi.jpg.png') no-repeat center/cover fixed;
-  color: var(--color-secondary);
+  font-family: var(--font-sans) !important;
+  background: var(--color-bg) url('imagens/fundi.jpg.png') no-repeat center/cover fixed !important;
+  color: var(--color-secondary) !important;
   line-height: 1.6;
   position: relative;
 }
 body::before {
   content: '';
-  position: absolute; top: 0; left: 0;
+  position: absolute;
+  top: 0; left: 0;
   width: 100%; height: 100%;
-  background-color: var(--color-overlay);
+  background: linear-gradient(
+    180deg,
+    var(--overlay-start) 0%,
+    var(--overlay-end)   100%
+  );
   z-index: -1;
 }
 
-/*--------------------------------------------------
-  4. Espaçamento reutilizável
----------------------------------------------------*/
+/* 5. Espaçamento reutilizável */
 .espaco-24px {
   height: 24px;
 }
 
-/*--------------------------------------------------
-  5. Container central
----------------------------------------------------*/
+/* 6. Container central */
 .container-principal {
   max-width: var(--max-container);
   width: 90%;
   margin: 0 auto;
   padding: calc(var(--spacing) * 2);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,79 +71,81 @@ body::before {
   z-index: 1;
 }
 
-/*--------------------------------------------------
-  6. Títulos e alinhamento
----------------------------------------------------*/
+/* 7. Títulos e alinhamento */
 .div-titulo {
   text-align: center;
 }
+h1, h2, h3 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-primary) !important;
+  text-align: center;
+}
 h1 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem,5vw,4rem);
   margin-bottom: var(--spacing);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
 }
 h2 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-size: clamp(1.75rem,4vw,2.5rem);
   margin-bottom: var(--spacing);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   letter-spacing: 0.5px;
-  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 }
 h2 span {
-  color: var(--color-primary);
+  color: var(--color-primary) !important;
 }
 h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
   font-size: 1.25rem;
   margin-bottom: var(--spacing);
-  text-align: center;
 }
 
-/*--------------------------------------------------
-  7. Parágrafos e texto de formulário
----------------------------------------------------*/
-p {
-  color: var(--color-secondary);
+/* 8. Parágrafos e texto de formulário */
+p, label {
+  font-family: var(--font-sans) !important;
+  color: var(--color-secondary) !important;
   text-align: center;
-  max-width: 700px;
+}
+p {
   margin-bottom: var(--spacing);
+  max-width: 700px;
 }
 p.texto-form {
-  color: var(--color-secondary);
+  margin-bottom: var(--spacing);
 }
 p.consentimento {
   font-size: 0.85rem;
-  color: var(--color-secondary);
-  text-align: center;
   margin-top: var(--spacing);
 }
 
-/*--------------------------------------------------
-  8. Imagem circular com overlay
----------------------------------------------------*/
-.image-container {
+/* 9. Imagem circular com overlay */
+.imagem {
   position: relative;
   overflow: hidden;
   margin-bottom: var(--spacing);
 }
-.image-container img.foto {
+.imagem::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(
+    180deg,
+    var(--overlay-start) 0%,
+    var(--overlay-end)   100%
+  );
+  pointer-events: none;
+}
+.imagem img.foto {
+  display: block;
   width: 100%;
   max-width: 400px;
-  display: block;
   border-radius: 50%;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
 
-/*--------------------------------------------------
-  9. Navegação e ícones
----------------------------------------------------*/
+/* 10. Navegação e ícones */
 .navegacao {
   display: flex;
   gap: var(--spacing);
@@ -158,41 +154,39 @@ p.consentimento {
   margin-bottom: var(--spacing);
 }
 .guia {
-  background-color: rgba(65, 57, 57, 0.7);
+  background-color: rgba(65,57,57,0.7);
   padding: 8px 12px;
   border-radius: 8px;
   transition: background 0.3s;
 }
 .guia:hover {
-  background-color: rgba(65, 57, 57, 0.9);
+  background-color: rgba(65,57,57,0.9);
 }
 .link {
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  color: var(--color-secondary);
+  color: var(--color-secondary) !important;
   font-weight: 600;
 }
 
-/* redes sociais */
+/* 11. Redes sociais */
 .redes-sociais {
   display: flex;
   gap: var(--spacing);
+  justify-content: center;
 }
 .icone-rede-social {
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 .icone-rede-social:hover {
   transform: scale(1.1);
 }
 
-/*--------------------------------------------------
- 10. Formulário (inputs, selects, textarea, botão)
----------------------------------------------------*/
+/* 12. Formulário (inputs e botão) */
 form {
   width: 100%;
   display: flex;
@@ -200,23 +194,23 @@ form {
   gap: var(--spacing);
 }
 .campo {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing);
 }
 .campo label {
-  display: block;
   margin-bottom: 4px;
-  color: var(--color-secondary);
+  color: var(--color-secondary) !important;
 }
 .campo input,
 .campo select,
 .campo textarea {
-  width: 100%;
   padding: 12px;
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #333;
-  background: rgba(14, 17, 22, 0.95);
-  color: var(--color-text-form);
+  background: rgba(14,17,22,0.95);
+  color: var(--color-text-form) !important;
   transition: border-color 0.3s, background 0.3s;
 }
 .campo input:focus,
@@ -224,13 +218,11 @@ form {
 .campo textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  background: rgba(14, 17, 22, 1);
+  background: rgba(14,17,22,1);
 }
-
-/* botão */
 button[type="submit"] {
   background-color: var(--color-primary);
-  color: var(--color-bg);
+  color: var(--color-bg) !important;
   padding: 12px 24px;
   font-size: 1rem;
   border: none;
@@ -244,21 +236,16 @@ button[type="submit"]:hover {
   transform: translateY(-2px);
 }
 
-/*--------------------------------------------------
- 11. Seção “sobre”
----------------------------------------------------*/
+/* 13. Seção “sobre” */
 .sobre {
   text-align: center;
 }
 .sobre h3,
 .sobre p {
   margin-bottom: var(--spacing);
-  color: var(--color-secondary);
 }
 
-/*--------------------------------------------------
- 12. Responsividade
----------------------------------------------------*/
+/* 14. Responsividade */
 @media (max-width: 768px) {
   .container-principal {
     padding: var(--spacing);
@@ -269,7 +256,7 @@ button[type="submit"]:hover {
   h2 {
     font-size: 1.75rem;
   }
-  .image-container img.foto {
+  .imagem img.foto {
     max-width: 300px;
   }
 }
