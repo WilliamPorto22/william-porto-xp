@@ -1,172 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt">
-<link rel="stylesheet" href="styles.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William Porto</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container-principal">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>William Porto</title>
-    </head>
+    <header class="div-titulo">
+      <h1>William Porto</h1>
+      <h3>Assessor de investimentos - XP</h3>
+    </header>
 
-    <body>
+    <div class="espaco-24px"></div>
 
-        <div class="container-principal">
+    <div class="imagem">
+      <img src="imagens/william.jpg" alt="Foto de William Porto" class="foto">
+    </div>
 
-            <div class="div-titulo">
+    <div class="espaco-24px"></div>
 
-                <h1>William Porto</h1>
-                <h3>Assessor de investimentos - XP</h3>
+    <div class="redes-sociais">
+      <a href="mailto:william.porto@avel.me">
+        <img class="icone-rede-social" src="imagens/email.png" alt="Email">
+      </a>
+      <a href="https://www.instagram.com/william_porto0" target="_blank">
+        <img class="icone-rede-social" src="imagens/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@williamporto11" target="_blank">
+        <img class="icone-rede-social" src="imagens/tiktok.png" alt="TikTok">
+      </a>
+    </div>
 
-            </div>
+    <div class="espaco-24px"></div>
 
-            <div class="espaco-24px"></div>
+    <section class="formulario">
+      <h2>Solicite sua assessoria personalizada</h2>
+      <p class="texto-form">Preencha o formulário e entrarei em contato em breve.</p>
 
-            <div class="imagem">
-
-                <img src="imagens/william.jpg" alt="" srcset="" class="foto">
-
-            </div>
-
-            <div class="espaco-24px"></div>
-
-            <div class="redes-sociais">
-
-                <a href="mailto:william.porto@avel.me">
-                    <img class="icone-rede-social" src="imagens/email.png" alt="" srcset="">
-                </a>
-
-                <a href="https://www.instagram.com/william_porto0" target="_blank">
-                    <img class="icone-rede-social" src="imagens/instagram.png" alt="" srcset="">
-                </a>
-
-                <a href="https://www.tiktok.com/@williamporto11" target="_blank">
-                    <img class="icone-rede-social" src="imagens/tiktok.png" alt="" srcset="">
-                </a>
-
-            </div>
-
-            
-
-            <div class="formulario">
-
-                <h2>Solicite sua assessoria personalizada.</h2>
-                <p class="texto-form">
-                    Preencha o formulário e entrarei em contato em breve.
-                </p>
-
-                <form id="contatoForm" action="https://formcarry.com/s/KzpmIQo0Dg_" method="POST">
-                    <input type="text" name="nome" placeholder="Seu nome" required>
-                    <input type="text" id="telefone" name="telefone" placeholder="WhatsApp" required
-                        maxlength="15">
-                    <select name="tipoInvestimento" required>
-                        <option value="Não informou">Investimento mensal</option>
-                        <option value="De R$ 0 a R$500,00">De R$ 0 a R$500,00</option>
-                        <option value="De R$500,00 a R$1.000,00">De R$500,00 a R$1.000,00</option>
-                        <option value="De R$1.000,00 a R$3.000,00">De R$1.000,00 a R$3.000,00</option>
-                        <option value="R$3.000,00 a R$10.000,00">R$3.000,00 a R$10.000,00</option>
-                        <option value="Mais de R$20.000,00">Mais de R$20.000,00</option>
-                    </select>
-
-                    <select name="tipoInvestimento" required>
-                        <option value="Não informou">Investimento mensal</option>
-                        <option value="De R$ 0 a R$500,00">De R$ 0 a R$500,00</option>
-                        <option value="De R$500,00 a R$1.000,00">De R$500,00 a R$1.000,00</option>
-                        <option value="De R$1.000,00 a R$3.000,00">De R$1.000,00 a R$3.000,00</option>
-                        <option value="R$3.000,00 a R$10.000,00">R$3.000,00 a R$10.000,00</option>
-                        <option value="Mais de R$20.000,00">Mais de R$20.000,00</option>
-                    </select>
-                    <textarea name="mensagem" placeholder="Qual tipo de investimento ou produto você tem interesse?"
-                        rows="5" required></textarea>
-                    <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
-                    <button type="submit">Enviar</button>
-                    <div class="consentimento">
-                        <p>Ao enviar o formulário, você concorda com o uso dos seus dados para fins de
-                            contato e assessoria.</p>
-                    </div>
-                    <div id="mensagemStatus"></div>
-                </form>
-
-            </div>
-
-            <div class="espaco-24px"></div>
-
-            <div class="sobre">
-
-<div class="espaco-24px"></div>
-
-            <div class="navegacao">
-
-                <div class="guia">
-
-                    <a class="link" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498">
-
-                        <img class="icone" src="imagens/xp.png" alt="" srcset="">
-                        <p class="texto-centralizado">Abra sua Conta XP com minha assessoria</p>
-                        <img class="icone-seta" src="imagens/seta.png" alt="" srcset="">
-
-                    </a>
-
-                </div>
-
-                <div class="guia">
-
-                    <a class="link"
-                        href="https://api.whatsapp.com/send/?phone=5551993563021&text&type=phone_number&app_absent=0">
-
-                        <img class="icone" src="imagens/whats.png" alt="" srcset="">
-                        <p> &nbsp; Whatsapp</p>
-                        <img class="icone-seta" src="imagens/seta.png" alt="" srcset="">
-
-                    </a>
-
-                </div>
-
-                <div class="guia">
-
-                    <a class="link" href="https://avel.me/calculadora-juros-compostos/">
-
-                        <img class="icone" src="imagens/calc.png" alt="" srcset="">
-                        <p>Calculadora de Juros Compostos</p>
-                        <img class="icone-seta" src="imagens/seta.png" alt="" srcset="">
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="espaco-24px"></div>
-                <h3>Plano da Liberdade Financeira</h3>
-
-                <p>
-                    Muitos investidores me perguntam:
-                    <br>
-                    “Como conquistar liberdade financeira?”
-                </p>
-
-                <p>
-
-                    A resposta não é correr riscos, é ter um plano seguro, alinhado com seus objetivos com alguém de
-                    confiança
-                    ao lado.
-                    Liberdade não é ter muito, é ter o suficiente para viver com tranquilidade.
-                </p>
-
-                <p>
-
-                    Ável | Assessoria credenciada à XP Investimentos
-                    Premiada como TOP 1 XP 2024
-                </p>
-
-            </div>
-
+      <form id="contatoForm" action="https://formcarry.com/s/KzpmIQo0Dg_" method="POST">
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
         </div>
 
+        <div class="campo">
+          <label for="telefone">WhatsApp</label>
+          <input type="text" id="telefone" name="telefone" placeholder="WhatsApp" required maxlength="15">
+        </div>
 
-    </body>
+        <div class="campo">
+          <label for="investimentoMensal">Investimento mensal</label>
+          <select id="investimentoMensal" name="investimentoMensal" required>
+            <option value="Não informou">Selecione...</option>
+            <option value="0-500">De R$ 0 a R$ 500,00</option>
+            <option value="500-1000">De R$ 500,00 a R$ 1.000,00</option>
+            <option value="1000-3000">De R$ 1.000,00 a R$ 3.000,00</option>
+            <option value="3000-10000">De R$ 3.000,00 a R$ 10.000,00</option>
+            <option value=">20000">Mais de R$ 20.000,00</option>
+          </select>
+        </div>
 
+        <div class="campo">
+          <label for="patrimonioLiquido">Patrimônio líquido</label>
+          <select id="patrimonioLiquido" name="patrimonioLiquido" required>
+            <option value="Não informou">Selecione...</option>
+            <option value="0-50000">Até R$ 50.000,00</option>
+            <option value="50000-200000">De R$ 50.000,00 a R$ 200.000,00</option>
+            <option value="200000-500000">De R$ 200.000,00 a R$ 500.000,00</option>
+            <option value=">500000">Acima de R$ 500.000,00</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Interesse</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia você tem interesse?" rows="5" required></textarea>
+        </div>
+
+        <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
+        <button type="submit">Enviar</button>
+        <p class="consentimento">Ao enviar o formulário, você concorda com o uso dos seus dados para fins de contato e assessoria.</p>
+        <div id="mensagemStatus"></div>
+      </form>
+    </section>
+
+    <div class="espaco-24px"></div>
+
+    <section class="sobre">
+      <nav class="navegacao">
+        <div class="guia">
+          <a class="link" href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498">
+            <img class="icone" src="imagens/xp.png" alt="XP">
+            <p class="texto-centralizado">Abra sua Conta XP com minha assessoria</p>
+            <img class="icone-seta" src="imagens/seta.png" alt="Seta">
+          </a>
+        </div>
+        <div class="guia">
+          <a class="link" href="https://api.whatsapp.com/send/?phone=5551993563021&text&type=phone_number&app_absent=0">
+            <img class="icone" src="imagens/whats.png" alt="WhatsApp">
+            <p>WhatsApp</p>
+            <img class="icone-seta" src="imagens/seta.png" alt="Seta">
+          </a>
+        </div>
+        <div class="guia">
+          <a class="link" href="https://avel.me/calculadora-juros-compostos/">
+            <img class="icone" src="imagens/calc.png" alt="Calculadora">
+            <p>Calculadora de Juros Compostos</p>
+            <img class="icone-seta" src="imagens/seta.png" alt="Seta">
+          </a>
+        </div>
+      </nav>
+
+      <div class="espaco-24px"></div>
+      <h3>Plano da Liberdade Financeira</h3>
+      <p>Muitos investidores me perguntam:<br>“Como conquistar liberdade financeira?”</p>
+      <p>A resposta não é correr riscos, é ter um plano seguro, alinhado com seus objetivos e alguém de confiança ao lado. Liberdade não é ter muito, é ter o suficiente para viver com tranquilidade.</p>
+      <p>Ável | Assessoria credenciada à XP Investimentos<br>Premiada como TOP 1 XP 2024</p>
+    </section>
+
+  </div>
+  <script src="script.js"></script>
+</body>
 </html>
-
-<script src="script.js"></script>
-
-
