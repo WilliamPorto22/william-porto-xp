@@ -10,7 +10,200 @@
   --max-width: 1000px;
   --icon-size: 36px;
   --anim: 0.6s ease-out;
+}/* styles.css - Versão 4.8: Botão aprimorado + hierarquia tipográfica refinada */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font: 'Poppins', sans-serif;
+  --bg-color: #0e1116;
+  --text-color: #f1f1f1;
+  --primary: #c59d5f;
+  --spacing: 16px;
+  --max-width: 1000px;
+  --icon-size: 36px;
+  --anim: 0.6s ease-out;
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Fundo com vinheta + textura */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    url('imagens/noise.svg'),
+    linear-gradient(to bottom, rgba(33,33,33,0.90) 0%, rgba(33,33,33,0.46) 100%),
+    url('imagens/fundi.jpg.png');
+  background-size: auto, cover, cover;
+  background-position: center, center, center;
+  background-repeat: repeat, no-repeat, no-repeat;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Container geral */
+.container-principal {
+  width: 90%; max-width: var(--max-width);
+  padding: calc(var(--spacing) * 2);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  text-align: center;
+  position: relative; z-index: 1;
+  animation: fadeInUp var(--anim);
+}
+
+/* Tipografia: Hierarquia clara */
+.container-principal h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: var(--spacing);
+  color: var(--primary);
+}
+.container-principal h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: var(--spacing);
+  color: var(--primary);
+}
+.container-principal h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  margin-bottom: var(--spacing);
+  color: var(--primary);
+}
+
+/* Texto de parágrafo padrão */
+.container-principal p {
+  font-size: 1rem;
+  margin-bottom: var(--spacing);
+  color: var(--text-color);
+}
+
+/* Imagem de perfil acima do overlay */
+.image-container {
+  width: clamp(250px, 35vw, 400px);
+  height: clamp(250px, 35vw, 400px);
+  margin: 0 auto var(--spacing);
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative; z-index: 2;
+  animation: fadeInUp var(--anim) calc(var(--anim)/2) both;
+}
+.image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Formulário centralizado e responsivo */
+.container-principal form {
+  max-width: 600px;
+  width: 90%;
+  margin: 0 auto 2rem;
+}
+.container-principal .campo {
+  margin-bottom: 1.25rem;
+}
+.container-principal .campo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+.container-principal .campo input,
+.container-principal .campo select,
+.container-principal .campo textarea {
+  width: 100%; padding: 12px;
+  background: rgba(14,17,22,0.7);
+  color: var(--text-color);
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+.campo select { appearance: none; }
+.campo option { background: rgba(14,17,22,0.9); color: var(--text-color); }
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary);
+}
+
+/* Botão Enviar aprimorado */
+.container-principal button[type="submit"] {
+  max-width: 200px;
+  width: 50%;
+  margin: 1rem auto var(--spacing);
+  padding: 12px 24px;
+  background: var(--primary);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 999px; /* pílula */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.container-principal button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.30);
+  background: rgba(197,157,95,0.9);
+}
+.container-principal button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.container-principal button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  background: rgba(197,157,95,0.9);
+}
+.container-principal button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Redes sociais e guia */
+.redes-sociais, .navegacao { display: flex; justify-content: center; gap: var(--spacing); margin-bottom: var(--spacing); }
+.redes-sociais img, .guia img { width: var(--icon-size); height: var(--icon-size); transition: transform 0.2s; }
+.redes-sociais img:hover { transform: scale(1.1); }
+.guia { background: rgba(255,255,255,0.1); padding:12px 16px; border-radius:4px; display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text-color); transition:background 0.2s; }
+.guia:hover { background: rgba(255,255,255,0.2); }
+.guia p { flex:1; margin:0; }
+
+/* Seção SOBRE */
+.sobre h3 { margin-top: var(--spacing); }
+.sobre p { max-width: 600px; margin: var(--spacing) auto; line-height:1.5; }
+
+/* Responsivo */
+@media(max-width:600px) {
+  .image-container { width:200px; height:200px; }
+  .redes-sociais img, .guia img { width:32px; height:32px; }
+}
+
 
 *, *::before, *::after {
   box-sizing: border-box;
