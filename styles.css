@@ -21,6 +21,24 @@
   --max-container:    1000px;
 }
 
+/* Container que vai “cortar” a imagem em círculo */
+.image-container {
+  width: clamp(150px, 20vw, 250px); /* mínimo 150px, máximo 250px, cresce conforme a largura da tela */
+  height: clamp(150px, 20vw, 250px);
+  border-radius: 50%;               /* formato circular */
+  overflow: hidden;                 /* esconde as partes da img que ultrapassam o círculo */
+  margin: 0 auto;                   /* centraliza horizontalmente */
+}
+
+/* Ajuste da própria imagem para preencher o container sem distorcer */
+.image-container .foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* mantém proporção e preenche todo o círculo */
+  display: block;      /* elimina possíveis espaços em branco */
+}
+
+
 /* 3. Reset básico */
 * {
   box-sizing: border-box;
