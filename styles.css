@@ -1,11 +1,13 @@
+/* styles.css */
+
 /*--------------------------------------------------
   1. Variáveis de tema
 ---------------------------------------------------*/
 :root {
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --color-bg: #FFFFFF;           /* fundo branco */
-  --color-text: #000000;         /* texto principal preto */
+  --color-bg: #FFFFFF;           /* fallback branco */
+  --color-text: #000000;         /* texto preto */
   --color-sub: #777777;          /* texto secundário cinza */
   --overlay-start: rgba(0, 0, 0, 0.2);
   --overlay-end:   rgba(0, 0, 0, 0.5);
@@ -23,70 +25,131 @@
 }
 
 /*--------------------------------------------------
-  3. Body e background
+  3. Body, background e overlay
 ---------------------------------------------------*/
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-bg);
+  /* primeiro o degradê, depois a imagem */
+  background:
+    linear-gradient(
+      180deg,
+      var(--overlay-start) 0%,
+      var(--overlay-end)   100%
+    ),
+    url('imagens/fundi.jpg.png') no-repeat center/cover fixed;
   color: var(--color-text);
   line-height: 1.6;
 }
 
 /*--------------------------------------------------
-  4. Container central
+  4. Espaçamento reutilizável
+---------------------------------------------------*/
+.espaco-24px {
+  height: 24px;
+}
+
+/*--------------------------------------------------
+  5. Container central
 ---------------------------------------------------*/
 .container-principal {
   max-width: var(--max-container);
   width: 90%;
   margin: 0 auto;
   padding: calc(var(--spacing) * 2);
+  position: relative;  /* para sobrepor o overlay */
+  z-index: 1;
 }
 
 /*--------------------------------------------------
-  5. Títulos
+  6. Títulos e alinhamento
 ---------------------------------------------------*/
-h1 {
-  font-family: var(--font-sans);
-  color: var(--color-text);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: var(--spacing);
+.div-titulo {
   text-align: center;
+  margin-bottom: var(--spacing);
 }
 
-h2 {
-  font-family: var(--font-sans);
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--color-text);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  margin-bottom: var(--spacing);
-  text-align: center;
-}
-h2 span {
-  color: var(--color-text);
+  margin-bottom: 0.5rem;
 }
 
 h3 {
-  font-family: var(--font-sans);
-  color: var(--color-sub);
   font-size: 1.25rem;
-  margin-bottom: var(--spacing);
-  text-align: center;
-}
-
-/*--------------------------------------------------
-  6. Parágrafos
----------------------------------------------------*/
-p {
-  margin-bottom: var(--spacing);
-  color: var(--color-text);
-  text-align: center;
-  max-width: 700px;
-}
-p#text13 {
   color: var(--color-sub);
 }
 
 /*--------------------------------------------------
-  7. Imagens com overlay
+  7. Formulário
+---------------------------------------------------*/
+.formulario h2 {
+  text-align: center;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-text);
+  margin-bottom: var(--spacing);
+}
+
+.texto-form {
+  text-align: center;
+  color: var(--color-sub);
+  margin-bottom: var(--spacing);
+}
+
+/* labels e campos básicos */
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing);
+}
+.campo label {
+  margin-bottom: 4px;
+  color: var(--color-text);
+}
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  color: var(--color-text);
+}
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--color-text);
+  background: #fff;
+}
+
+/* botão */
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-text);
+  color: var(--color-bg);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+button[type="submit"]:hover {
+  background-color: var(--color-sub);
+  transform: translateY(-2px);
+}
+
+.consentimento {
+  font-size: 0.85rem;
+  color: var(--color-sub);
+  text-align: center;
+  margin-top: var(--spacing);
+}
+
+/*--------------------------------------------------
+  8. Imagem com overlay (retirado do <body>)
 ---------------------------------------------------*/
 .image-container {
   position: relative;
@@ -94,122 +157,76 @@ p#text13 {
   overflow: hidden;
   margin-bottom: var(--spacing);
 }
-.image-container img {
-  width: 100%;
-  height: auto;
+.image-container img.foto {
   display: block;
-}
-.image-container::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    180deg,
-    var(--overlay-start) 0%,
-    var(--overlay-end) 100%
-  );
-  pointer-events: none;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 /*--------------------------------------------------
-  8. Navegação
+  9. Navegação e ícones
 ---------------------------------------------------*/
 .navegacao {
   display: flex;
   gap: var(--spacing);
-  margin: var(--spacing) 0;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: var(--spacing);
 }
 .guia {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
   padding: 8px 12px;
   border-radius: 8px;
   transition: background 0.3s;
 }
 .guia:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .link {
-  color: var(--color-text);
-  text-decoration: none;
-  font-weight: 600;
   display: flex;
   align-items: center;
   gap: 8px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
 }
 
-/*--------------------------------------------------
-  9. Redes sociais
----------------------------------------------------*/
+/* ícones redes sociais */
 .redes-sociais {
   display: flex;
   gap: var(--spacing);
-  margin-top: var(--spacing);
+  justify-content: center;
 }
 .icone-rede-social {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s;
 }
 .icone-rede-social:hover {
   transform: scale(1.1);
 }
 
 /*--------------------------------------------------
- 10. Formulário
+ 10. Seção “sobre”
 ---------------------------------------------------*/
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
-  margin-top: var(--spacing);
+.sobre {
+  text-align: center;
 }
-input, textarea, select {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  background: #f9f9f9;
+.sobre h3 {
+  margin-bottom: var(--spacing);
   color: var(--color-text);
-  min-height: 48px;
-  transition: border-color 0.3s, background 0.3s;
 }
-input::placeholder, textarea::placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--color-text);
-  background: #fff;
+.sobre p {
+  margin-bottom: var(--spacing);
+  color: var(--color-text);
 }
 
 /*--------------------------------------------------
- 11. Botões
----------------------------------------------------*/
-button, input[type="submit"] {
-  font-family: var(--font-sans);
-  background-color: var(--color-text);
-  color: var(--color-bg);
-  padding: 12px 24px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
-}
-button:hover, input[type="submit"]:hover {
-  background-color: var(--color-sub);
-  transform: translateY(-2px);
-}
-
-/*--------------------------------------------------
- 12. Responsividade
+ 11. Responsividade
 ---------------------------------------------------*/
 @media (max-width: 768px) {
   .container-principal {
@@ -218,7 +235,10 @@ button:hover, input[type="submit"]:hover {
   h1 {
     font-size: 2.5rem;
   }
-  h2 {
+  .formulario h2 {
     font-size: 1.75rem;
+  }
+  .image-container img.foto {
+    max-width: 300px;
   }
 }
