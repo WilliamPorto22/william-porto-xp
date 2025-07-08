@@ -1,12 +1,16 @@
 /* styles.css */
 
 /*--------------------------------------------------
+  0. Importe a fonte Poppins do Google Fonts
+---------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*--------------------------------------------------
   1. Variáveis de tema (mantendo seu fundo escuro e overlay)
 ---------------------------------------------------*/
 :root {
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
-               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: 'Roboto Slab', serif;
+  --font-sans: 'Poppins', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
 
   /* cores originais ajustadas */
   --color-bg: #0e1116;
