@@ -36,6 +36,36 @@
   gap: 8px; /* espaçamento entre ícone e texto */
 }
 
+/* 1) Torna todo link um flex alinhado */
+.navegacao .link {
+  display: flex;
+  align-items: center;
+  gap: 12px;           /* espaço entre ícone, texto e seta */
+  padding: 8px 16px;   /* só pra deixar o botão “mais clicável” */
+  text-decoration: none;
+}
+
+/* 2) Padroniza o tamanho de TODOS os <img> dentro do link */
+.navegacao .link img {
+  width: 24px;         /* defina o tamanho que preferir */
+  height: 24px;
+  object-fit: contain; /* mantém proporção interna */
+  flex-shrink: 0;      /* não deixa encolher além disso */
+}
+
+/* 3) Se quiser diferenciar a seta, só sobrescreva */
+.icone-seta {
+  width: 16px;         /* seta um pouco menor */
+  height: 16px;
+  margin-left: auto;   /* empurra pra direita */
+}
+
+/* 4) Faz o <p> ocupar o espaço restante e zerar margens */
+.navegacao .link p {
+  margin: 0;
+  flex: 1;
+  color: inherit;      /* herda cor do link */
+}
 
 /* Container que vai “cortar” a imagem em círculo */
 .image-container {
