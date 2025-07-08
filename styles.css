@@ -21,6 +21,22 @@
   --max-container:    1000px;
 }
 
+/* Garante que todo <img class="icone"> tenha o mesmo tamanho */
+.icone {
+  width: 32px;        /* ajuste para o tamanho que você quer */
+  height: 32px;       /* idem */
+  object-fit: contain;/* mantém a proporção interna da imagem */
+  display: inline-block;
+}
+
+/* Se quiser alinhar icon + texto centralizado verticalmente */
+.guia .link {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espaçamento entre ícone e texto */
+}
+
+
 /* Container que vai “cortar” a imagem em círculo */
 .image-container {
   width: clamp(150px, 20vw, 250px); /* mínimo 150px, máximo 250px, cresce conforme a largura da tela */
