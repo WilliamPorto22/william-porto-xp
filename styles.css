@@ -1,18 +1,18 @@
-/* Estilo inspirado no Carrd.co */
+/* ─── Variáveis de Tema ───────────────────────────────────────── */
 :root {
   --color-bg: #0e1116;
   --color-overlay: rgba(0, 0, 0, 0.6);
-  --color-primary: #c59d5f;
-  --color-secondary: #f1f1f1;
-  --color-accent: #a2a4a7;
+  --color-primary: #d4af37;      /* ouro mais vibrante */
+  --color-secondary: #ececec;    /* off-white para o texto */
+  --color-accent: #a2a4a7;       /* cinza suave para detalhes */
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-heading: 'Roboto Slab', serif;
   --spacing: 1.5rem;
 }
 
-/* Reset básico */
+/* ─── Reset e Fundo ───────────────────────────────────────────── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
+html, body { height: 100%; scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
   color: var(--color-secondary);
@@ -25,8 +25,13 @@ body::before {
   background-color: var(--color-overlay);
   z-index: 0;
 }
+/* realça texto selecionado */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
 
-/* Container principal fullscreen */
+/* ─── Container Principal ─────────────────────────────────────── */
 .container-principal {
   position: relative;
   z-index: 1;
@@ -40,64 +45,76 @@ body::before {
   gap: var(--spacing);
 }
 
-/* Título e subtítulo */
+/* ─── Título e Subtítulo ─────────────────────────────────────── */
 .div-titulo h1 {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
   color: var(--color-primary);
-  letter-spacing: 2px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0.25em;
 }
 .div-titulo h3 {
   font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: var(--color-secondary);
-  opacity: 0.9;
+  opacity: 0.85;
+  font-style: italic;
 }
 
-/* Foto em destaque */
+/* ─── Foto em Destaque ───────────────────────────────────────── */
 .imagem .foto {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   border: 4px solid var(--color-primary);
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
 }
 
-/* Redes sociais */
+/* ─── Ícones Sociais ─────────────────────────────────────────── */
 .redes-sociais {
   display: flex;
   gap: 1rem;
 }
 .icone-rede-social {
-  width: 40px; height: 40px;
-  transition: transform 0.2s ease;
+  width: 48px;
+  height: 48px;
+  padding: 0.5rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  filter: grayscale(100%) brightness(0.9);
+  transition: filter 0.3s ease, transform 0.3s ease;
 }
 .icone-rede-social:hover {
+  filter: grayscale(0%) brightness(1.1);
   transform: scale(1.2);
 }
 
-/* Formulário com estilo glassmorphism */
+/* ─── Formulário (Glassmorphism) ────────────────────────────── */
 .formulario {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 2rem;
   max-width: 400px;
   width: 100%;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 .formulario h2 {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  border-left: 4px solid var(--color-primary);
+  padding-left: 0.5rem;
 }
 .formulario p {
   font-size: 0.95rem;
-  margin-bottom: 1rem;
   color: var(--color-secondary);
 }
 .formulario input,
@@ -108,7 +125,7 @@ body::before {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.18);
   color: var(--color-secondary);
   transition: background 0.3s, box-shadow 0.3s;
 }
@@ -135,7 +152,7 @@ body::before {
   transform: translateY(-2px);
 }
 
-/* Navegação / links auxiliares */
+/* ─── Navegação / Links Auxiliares ──────────────────────────── */
 .navegacao {
   display: flex;
   flex-direction: column;
@@ -167,18 +184,19 @@ body::before {
   width: 16px; height: 16px;
 }
 
-/* Seção 'Sobre' simplificada */
+/* ─── Seção 'Sobre' ──────────────────────────────────────────── */
 .sobre {
   max-width: 600px;
   padding: 2rem 1rem;
   font-size: 0.95rem;
   color: var(--color-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* Responsivo */
+/* ─── Responsivo ─────────────────────────────────────────────── */
 @media (max-width: 600px) {
   .formulario { padding: 1.5rem; }
-  .div-titulo h1 { font-size: 2.5rem; }
+  .div-titulo h1 { font-size: 2.5rem; letter-spacing: 2px; }
   .div-titulo h3 { font-size: 1rem; }
 }
+
