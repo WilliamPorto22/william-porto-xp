@@ -5,20 +5,20 @@
 
 /* 2. Variáveis de tema */
 :root {
-  --font-sans: 'Poppins', sans-serif;
-  --font-heading: 'Poppins', sans-serif;
+  --font-sans:        'Poppins', sans-serif;
+  --font-heading:     'Poppins', sans-serif;
 
-  --color-bg:        #0e1116;
-  --color-overlay:   rgba(14, 17, 22, 0.85);
-  --overlay-start:   rgba(14, 17, 22, 0);
-  --overlay-end:     rgba(14, 17, 22, 0.85);
-  --color-primary:   #c59d5f;
-  --color-secondary: #f1f1f1;
-  --color-accent:    #a2a4a7;
-  --color-text-form: #ffffff;
+  --color-bg:         #0e1116;
+  --color-overlay:    rgba(14, 17, 22, 0.85);
+  --overlay-start:    rgba(14, 17, 22, 0);
+  --overlay-end:      rgba(14, 17, 22, 0.85);
+  --color-primary:    #c59d5f;
+  --color-secondary:  #f1f1f1;
+  --color-accent:     #a2a4a7;
+  --color-text-form:  #ffffff;
 
-  --spacing:        16px;
-  --max-container: 1000px;
+  --spacing:          16px;
+  --max-container:    1000px;
 }
 
 /* 3. Reset básico */
@@ -118,33 +118,21 @@ p.consentimento {
   margin-top: var(--spacing);
 }
 
-/* 9. Imagem circular com overlay e borda */
+/* 9. Imagem de perfil corrigida */
 .imagem {
-  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto var(--spacing);
+  border-radius: 50%;
   overflow: hidden;
-  margin-bottom: var(--spacing);
-}
-.imagem::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(
-    180deg,
-    var(--overlay-start) 0%,
-    var(--overlay-end)   100%
-  );
-  pointer-events: none;
+  position: relative;
 }
 .imagem img.foto {
   display: block;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 1/1;
+  height: 100%;
   object-fit: cover;
-  border-radius: 50%;
   border: 4px solid var(--color-primary);
-  margin: 0 auto;
   box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
 
@@ -259,7 +247,8 @@ button[type="submit"]:hover {
   h2 {
     font-size: 1.75rem;
   }
-  .imagem img.foto {
-    max-width: 300px;
+  .imagem {
+    width: 150px;
+    height: 150px;
   }
 }
