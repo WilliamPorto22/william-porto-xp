@@ -1,4 +1,4 @@
-/* styles.css - Versão 4.7: Hierarquia de tipografia refinada */
+/* styles.css - Versão 4.8: Botão aprimorado + hierarquia tipográfica refinada */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -29,7 +29,6 @@ body {
   color: var(--text-color);
   position: relative;
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +39,8 @@ body {
 /* Fundo com vinheta + textura */
 body::before {
   content: "";
-  position: fixed; top: 0; left: 0;
+  position: fixed;
+  top: 0; left: 0;
   width: 100vw; height: 100vh;
   z-index: -1;
   pointer-events: none;
@@ -137,19 +137,33 @@ body::before {
   box-shadow: 0 0 0 2px var(--primary);
 }
 
-/* Botão Enviar */
+/* Botão Enviar aprimorado */
 .container-principal button[type="submit"] {
-  max-width: 200px;
-  width: 50%;
-  margin: 1rem auto 0;
-  padding: 12px 24px;
+  max-width: 220px;
+  width: 60%;
+  margin: 1.5rem auto 0;
+  padding: 14px 28px;
   background: var(--primary);
   color: var(--bg-color);
   border: none;
+  border-radius: 999px; /* pílula */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  transition: background 0.3s;
 }
-button[type="submit"]:hover { background: rgba(197,157,95,0.8); }
+.container-principal button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+  background: rgba(197,157,95,0.9);
+}
+.container-principal button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
 
 /* Redes sociais e guia */
 .redes-sociais, .navegacao { display: flex; justify-content: center; gap: var(--spacing); margin-bottom: var(--spacing); }
