@@ -165,7 +165,12 @@ body::before {
   margin-bottom: var(--spacing);
   color: var(--secondary); /* tom sobre tom de dourado */
 }
-.container-principal h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); margin-bottom: var(--spacing); color: var(--primary); }
+/* Novo tamanho h3 */
+.container-principal h3 { 
+  font-size: 1.12rem; 
+  margin-bottom: var(--spacing); 
+  color: var(--primary); 
+}
 .container-principal p { font-size: 1rem; margin-bottom: var(--spacing); color: var(--text-color); }
 
 /* Imagem de perfil */
@@ -195,7 +200,10 @@ body::before {
 .redes-sociais a img { width: 32px; height: 32px; }
 
 /* Seção SOBRE */
-.sobre h3 { margin-top: var(--spacing); }
+.sobre h3 { 
+  font-size: 1.12rem; 
+  margin-top: var(--spacing); 
+}
 .sobre p { max-width: 600px; margin: var(--spacing) auto; line-height: 1.5; }
 
 /* RESPONSIVIDADE E AJUSTES MOBILE */
@@ -217,7 +225,7 @@ body::before {
     line-height: 1.15;
   }
   .container-principal h2, .container-principal h3 {
-    font-size: 1.05rem !important;
+    font-size: 0.99rem !important; /* Menor h3 no mobile */
     margin-bottom: 8px;
     line-height: 1.2;
   }
@@ -284,7 +292,7 @@ body::before {
     font-size: 1rem;
   }
   .sobre h3 {
-    font-size: 1.1rem !important;
+    font-size: 0.99rem !important;
     margin-top: 16px;
   }
   .sobre p {
