@@ -1,275 +1,158 @@
+/* —————————————
+   Variáveis de tema
+   ————————————— */
 :root {
-  --color-bg: #0e1116;
-  --color-overlay: rgba(14, 17, 22, 0.85);
-  --color-primary: #c59d5f;
-  --color-secondary: #f1f1f1;
-  --color-accent: #a2a4a7;
-  --color-text-form: #ffffff;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-heading: 'Roboto Slab', serif;
-  --spacing: 1rem;
-  --max-container: 1000px;
+  --bg: #0e1116;
+  --overlay: rgba(14,17,22,0.85);
+  --primary: #c59d5f;
+  --secondary: #f1f1f1;
+  --accent: #a2a4a7;
+  --text-form: #fff;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --heading: 'Roboto Slab', serif;
+  --gap: 1rem;
+  --max-w: 1000px;
 }
 
-/* ————————————————————————
-   Reset e estrutura básica
-   ———————————————————————— */
+/* —————————————
+   Reset & corpo
+   ————————————— */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*::after { box-sizing: border-box; margin:0; padding:0 }
 
-html, body {
-  height: 100%;
-}
+html, body { height:100% }
 
 body {
+  font: 1rem/1.6 var(--sans);
+  color: var(--secondary);
+  background: var(--bg) url('imagens/fundo.jpg') center/cover fixed;
   position: relative;
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  color: var(--color-secondary);
-  background: var(--color-bg) url('imagens/fundo.jpg') no-repeat center/cover fixed;
   overflow-x: hidden;
 }
-
-/* overlay sobre o background, mas atrás do conteúdo */
 body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-color: var(--color-overlay);
-  z-index: 0;
+  content:''; position:fixed; inset:0;
+  background: var(--overlay);
+  z-index:0;
 }
 
-/* garante que o conteúdo fique acima do overlay */
+/* —————————————
+   Container principal
+   ————————————— */
 .container-principal {
   position: relative;
-  z-index: 1;
-}
-
-/* ————————————————————————
-   Container central
-   ———————————————————————— */
-.container-principal {
-  max-width: var(--max-container);
-  width: 90%;
+  z-index:1;
+  max-width: var(--max-w);
   margin: 2rem auto;
-  padding: calc(var(--spacing) * 2);
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing);
+  padding: calc(var(--gap)*2);
+  background: rgba(255,255,255,0.06);
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.5);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: var(--gap);
 }
 
-/* ————————————————————————
-   Títulos (h1, h2, h3)
-   ———————————————————————— */
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  text-align: center;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  letter-spacing: 0.5px;
+/* —————————————
+   Títulos
+   ————————————— */
+h1,h2,h3 {
+  font-family: var(--heading);
+  text-align:center;
+  text-shadow:0 2px 4px rgba(0,0,0,0.6);
+  margin-bottom: var(--gap);
 }
+h1 { color:var(--primary); font-size:clamp(2.5rem,5vw,4rem) }
+h2 { color:var(--secondary); font-size:clamp(1.75rem,4vw,2.5rem) }
+h3 { color:var(--accent); font-size:clamp(1.25rem,3vw,1.75rem); font-style:italic }
 
-h1 {
-  color: var(--color-primary);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  margin-bottom: var(--spacing);
-}
-
-h2 {
-  color: var(--color-secondary);
-  font-size: clamp(1.75rem, 4vw, 3rem);
-  margin-bottom: var(--spacing);
-}
-
-h3 {
-  color: var(--color-accent);
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  margin-bottom: calc(var(--spacing) / 2);
-  font-style: italic;
-}
-
-/* ————————————————————————
-   Parágrafos
-   ———————————————————————— */
-p {
-  max-width: 700px;
-  text-align: center;
-  margin-bottom: var(--spacing);
-}
-
-/* ————————————————————————
-   Imagem de perfil
-   ———————————————————————— */
+/* —————————————
+   Texto e imagem
+   ————————————— */
+p { max-width:700px; text-align:center }
 .foto {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 50%;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  margin-bottom: var(--spacing);
+  width:100%; max-width:300px;
+  border-radius:50%;
+  box-shadow:0 4px 16px rgba(0,0,0,0.5);
 }
 
-/* ————————————————————————
-   Navegação principal
-   ———————————————————————— */
+/* —————————————
+   Navegação
+   ————————————— */
 .navegacao {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--spacing);
-  margin: var(--spacing) 0;
+  display:flex; flex-wrap:wrap;
+  justify-content:center; gap:var(--gap);
+  margin: var(--gap) 0;
 }
-
 .navegacao .guia {
-  background-color: rgba(65, 57, 57, 0.7);
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background-color 0.3s;
+  background: rgba(65,57,57,0.7);
+  padding:.5rem 1rem; border-radius:8px;
+  transition: .3s;
 }
+.navegacao .guia:hover { background: rgba(65,57,57,0.9) }
+.navegacao .link { color:var(--secondary); text-decoration:none; font-weight:600 }
 
-.navegacao .guia:hover {
-  background-color: rgba(65, 57, 57, 0.9);
-}
-
-.navegacao .link {
-  color: var(--color-secondary);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* ————————————————————————
-   Ícones de redes sociais
-   ———————————————————————— */
+/* —————————————
+   Redes sociais
+   ————————————— */
 .redes-sociais {
-  display: flex;
-  gap: var(--spacing);
+  display:flex; gap:var(--gap);
 }
-
 .icone-rede-social {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  width:40px; height:40px;
+  transition:transform .3s;
 }
+.icone-rede-social:hover { transform:scale(1.1) }
 
-.icone-rede-social:hover {
-  transform: scale(1.15);
-}
-
-/* ————————————————————————
+/* —————————————
    Formulário
-   ———————————————————————— */
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing);
-  margin-top: var(--spacing);
+   ————————————— */
+form { width:100%; display:flex; flex-direction:column; gap:var(--gap) }
+input, textarea, select {
+  padding:.75rem;
+  border-radius:8px; border:1px solid #333;
+  background:rgba(14,17,22,0.95);
+  color: var(--text-form);
+  transition:.3s;
 }
-
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #333;
-  background: rgba(14, 17, 22, 0.95);
-  color: var(--color-text-form);
-  transition: border-color 0.3s, background 0.3s;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  background: rgba(14, 17, 22, 1);
-}
-
-/* seta customizada para <select> */
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><path fill='%23f1f1f1' d='M7 8L0 0h14z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 14px 8px;
-}
-
-/* placeholder */
 input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.7);
+textarea::placeholder { color:rgba(255,255,255,0.7) }
+input:focus, textarea:focus, select:focus {
+  outline:none; border-color:var(--primary); background:rgba(14,17,22,1)
+}
+select {
+  appearance:none;
+  background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><path fill='%23f1f1f1' d='M7 8L0 0h14z'/></svg>") no-repeat right 1rem center;
+  background-size:14px 8px;
 }
 
-/* ————————————————————————
-   Botões
-   ———————————————————————— */
+/* —————————————
+   Botões e status
+   ————————————— */
 button {
-  background-color: var(--color-primary);
-  color: var(--color-bg);
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  background:var(--primary);
+  color:var(--bg);
+  padding:.75rem 1.5rem;
+  border:none; border-radius:8px;
+  font-weight:600; cursor:pointer;
+  transition:.2s;
 }
+button:hover { background:var(--accent); transform:translateY(-2px) }
+.sucesso { color:#4caf50; text-align:center }
+.erro    { color:#f44336; text-align:center }
 
-button:hover {
-  background-color: var(--color-accent);
-  transform: translateY(-2px);
-}
-
-/* ————————————————————————
-   Mensagens de status
-   ———————————————————————— */
-.sucesso {
-  color: #4caf50;
-  text-align: center;
-}
-
-.erro {
-  color: #f44336;
-  text-align: center;
-}
-
-/* ————————————————————————
-   Consentimento (rodapé)
-   ———————————————————————— */
+/* —————————————
+   Consentimento & responsivo
+   ————————————— */
 .consentimento {
-  font-size: 0.75rem;
-  color: #bbb;
-  text-align: center;
-  margin-top: var(--spacing);
+  font-size:.75rem; color:#bbb; text-align:center; margin-top:var(--gap)
 }
 
-/* ————————————————————————
-   Responsividade
-   ———————————————————————— */
-@media (max-width: 768px) {
-  .container-principal {
-    padding: var(--spacing);
-  }
-  h1 {
-    font-size: 2.5rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-  }
-  .foto {
-    max-width: 250px;
-  }
+@media (max-width:768px) {
+  h1 { font-size:2.5rem }
+  h2 { font-size:1.75rem }
+  h3 { font-size:1.5rem }
+  .foto { max-width:200px }
+  .container-principal { padding:var(--gap) }
 }
