@@ -1,4 +1,3 @@
-/* Variáveis de tema */
 :root {
   --color-bg: #0e1116;
   --color-overlay: rgba(14, 17, 22, 0.85);
@@ -8,37 +7,58 @@
   --color-text-form: #ffffff;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-heading: 'Roboto Slab', serif;
-  --spacing: 16px;
+  --spacing: 1rem;
   --max-container: 1000px;
 }
 
-/* Reset básico */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-/* Body e background */
-body {
-  font-family: var(--font-sans);
-  /* Usando imagem atualizada */
-  background: var(--color-bg) url('imagens/fundi.jpg.png') no-repeat center/cover fixed;
-  color: var(--color-secondary);
-  position: relative;
-  line-height: 1.6;
+/* ————————————————————————
+   Reset e estrutura básica
+   ———————————————————————— */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-secondary);
+  background: var(--color-bg) url('imagens/fundo.jpg') no-repeat center/cover fixed;
+  overflow-x: hidden;
+}
+
+/* overlay sobre o background, mas atrás do conteúdo */
 body::before {
   content: '';
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
+  position: fixed;
+  inset: 0;
   background-color: var(--color-overlay);
-  z-index: -1;
+  z-index: 0;
 }
 
-/* Container central */
+/* garante que o conteúdo fique acima do overlay */
+.container-principal {
+  position: relative;
+  z-index: 1;
+}
+
+/* ————————————————————————
+   Container central
+   ———————————————————————— */
 .container-principal {
   max-width: var(--max-container);
   width: 90%;
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: calc(var(--spacing) * 2);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -47,140 +67,209 @@ body::before {
   gap: var(--spacing);
 }
 
-/* Títulos mais impactantes */
-h1 {
+/* ————————————————————————
+   Títulos (h1, h2, h3)
+   ———————————————————————— */
+h1, h2, h3 {
   font-family: var(--font-heading);
-  color: var(--color-primary);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: var(--spacing);
   text-align: center;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  letter-spacing: 1px;
-}
-h2 {
-  font-family: var(--font-heading);
-  color: var(--color-secondary);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  margin-bottom: var(--spacing);
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
   letter-spacing: 0.5px;
 }
 
-/* Aumenta ainda mais em desktop */
-@media (min-width: 1200px) {
-  h1 { font-size: 4.5rem; }
-  h2 { font-size: 3rem; }
+h1 {
+  color: var(--color-primary);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: var(--spacing);
 }
 
-p {
+h2 {
   color: var(--color-secondary);
-  text-align: center;
-  max-width: 700px;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  margin-bottom: var(--spacing);
 }
 
-/* Imagem circular */
+h3 {
+  color: var(--color-accent);
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: calc(var(--spacing) / 2);
+  font-style: italic;
+}
+
+/* ————————————————————————
+   Parágrafos
+   ———————————————————————— */
+p {
+  max-width: 700px;
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+/* ————————————————————————
+   Imagem de perfil
+   ———————————————————————— */
 .foto {
-  width: 100%; max-width: 400px;
+  width: 100%;
+  max-width: 350px;
   border-radius: 50%;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  margin-bottom: var(--spacing);
 }
 
-/* Navegação */
+/* ————————————————————————
+   Navegação principal
+   ———————————————————————— */
 .navegacao {
-  display: flex; gap: var(--spacing);
-  margin: var(--spacing) 0;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: var(--spacing);
+  margin: var(--spacing) 0;
 }
-.guia {
+
+.navegacao .guia {
   background-color: rgba(65, 57, 57, 0.7);
-  padding: 8px 12px; border-radius: 8px;
-  transition: background 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s;
 }
-.guia:hover { background-color: rgba(65, 57, 57, 0.9); }
-.link {
+
+.navegacao .guia:hover {
+  background-color: rgba(65, 57, 57, 0.9);
+}
+
+.navegacao .link {
   color: var(--color-secondary);
   text-decoration: none;
   font-weight: 600;
-  display: flex; align-items: center; gap: 8px;
 }
 
-/* Redes sociais */
-.redes-sociais { display: flex; gap: var(--spacing); margin-top: var(--spacing); }
+/* ————————————————————————
+   Ícones de redes sociais
+   ———————————————————————— */
+.redes-sociais {
+  display: flex;
+  gap: var(--spacing);
+}
+
 .icone-rede-social {
-  width: 48px; height: 48px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
-.icone-rede-social:hover { transform: scale(1.1); }
 
-/* Formulário estilizado */
+.icone-rede-social:hover {
+  transform: scale(1.15);
+}
+
+/* ————————————————————————
+   Formulário
+   ———————————————————————— */
 form {
-  width: 100%; display: flex;
-  flex-direction: column; gap: var(--spacing);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
   margin-top: var(--spacing);
 }
-input, textarea, select {
-  width: 100%; padding: 12px;
-  font-size: 16px; border-radius: 8px;
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
   border: 1px solid #333;
   background: rgba(14, 17, 22, 0.95);
   color: var(--color-text-form);
-  min-height: 48px; line-height: 1.4;
   transition: border-color 0.3s, background 0.3s;
-  z-index: 1;
 }
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><path fill='%23f1f1f1' d='M7 8L0 0h14z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 14px 8px;
-}
-option {
-  background: var(--color-bg);
-  color: var(--color-secondary);
-}
-input::placeholder, textarea::placeholder {
-  color: rgba(255, 255, 255, 0.85);
-}
-input:focus, textarea:focus, select:focus {
+
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--color-primary);
   background: rgba(14, 17, 22, 1);
 }
 
-/* Botão */
+/* seta customizada para <select> */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='8'><path fill='%23f1f1f1' d='M7 8L0 0h14z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 14px 8px;
+}
+
+/* placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ————————————————————————
+   Botões
+   ———————————————————————— */
 button {
   background-color: var(--color-primary);
   color: var(--color-bg);
-  padding: 12px 24px;
-  font-size: 16px; border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
   border-radius: 8px;
-  cursor: pointer; font-weight: 600;
-  min-height: 48px;
+  cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
+
 button:hover {
   background-color: var(--color-accent);
   transform: translateY(-2px);
 }
 
-/* Status */
-.sucesso { color: #4caf50; text-align: center; }
-.erro { color: #f44336; text-align: center; }
-
-/* Consentimento */
-.consentimento {
-  font-size: 12px; color: #bbb;
-  text-align: center; margin-top: var(--spacing);
+/* ————————————————————————
+   Mensagens de status
+   ———————————————————————— */
+.sucesso {
+  color: #4caf50;
+  text-align: center;
 }
 
-/* Responsivo */
+.erro {
+  color: #f44336;
+  text-align: center;
+}
+
+/* ————————————————————————
+   Consentimento (rodapé)
+   ———————————————————————— */
+.consentimento {
+  font-size: 0.75rem;
+  color: #bbb;
+  text-align: center;
+  margin-top: var(--spacing);
+}
+
+/* ————————————————————————
+   Responsividade
+   ———————————————————————— */
 @media (max-width: 768px) {
-  .container-principal { padding: var(--spacing); }
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 1.75rem; }
-  .foto { max-width: 300px; }
+  .container-principal {
+    padding: var(--spacing);
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .foto {
+    max-width: 250px;
+  }
 }
