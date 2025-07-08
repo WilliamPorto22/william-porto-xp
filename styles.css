@@ -1,168 +1,89 @@
-/* styles.css - Versão 4: Elegante, Minimalista e Estável */
-
-/* 1. Importa fonte e define variáveis */
+/* styles.css - Ajustes solicitados: ícones uniformes, fundo xp.png, overlay suave, foto maior, inputs retangulares */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 :root {
-  --font-sans:        'Poppins', sans-serif;
-  --color-bg:         #0e1116;
-  --color-primary:    #c59d5f;
-  --color-secondary:  #f1f1f1;
-  --color-overlay:    rgba(14,17,22,0.6);
-  --spacing:          16px;
-  --container-max:    1000px;
-  --radius:           12px;
+  --font: 'Poppins', sans-serif;
+  --bg-color: #0e1116;
+  --text-color: #f1f1f1;
+  --primary: #c59d5f;
+  --overlay: rgba(0,0,0,0.2);
+  --spacing: 16px;
+  --max-width: 1000px;
+  --icon-size: 36px;
 }
-
-/* 2. Reset básico */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-html { font-family: var(--font-sans); scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { font-family: var(--font); }
 body {
-  background: var(--color-bg) url('imagens/fundi.jpg.png') center/cover fixed;
-  color: var(--color-secondary);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--bg-color) url('imagens/xp.png') center/cover fixed;
+  color: var(--text-color);
   position: relative;
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
 }
 body::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--color-overlay);
-  pointer-events: none;
+  content:''; position:absolute; inset:0;
+  background: var(--overlay);
 }
-
-/* 3. Container principal */
 .container-principal {
-  position: relative;
-  width: 90%; max-width: var(--container-max);
-  padding: calc(var(--spacing) * 2);
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
-  z-index: 1;
-  text-align: center;
+  width:90%; max-width:var(--max-width);
+  padding:2*var(--spacing);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  box-shadow:0 8px 24px rgba(0,0,0,0.6);
+  text-align:center;
+  position:relative; z-index:1;
 }
+h1 { font-size:2.5rem; color:var(--primary); margin-bottom:var(--spacing);} 
+h2,h3 { color:var(--primary); margin-bottom:var(--spacing);} 
 
-/* 4. Títulos */
-h1, h2, h3 {
-  font-family: var(--font-sans);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing);
-}
-h1 { font-size: 3rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.25rem; }
-
-/* 5. Perfil circular */
 .image-container {
-  width: 200px; height: 200px;
-  margin: 0 auto var(--spacing);
-  border-radius: 50%; overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  width:250px; height:250px;
+  margin:0 auto var(--spacing);
+  overflow:hidden;
 }
-.image-container img {
-  width: 100%; height: 100%; object-fit: cover;
-}
+.image-container img { width:100%; height:100%; object-fit:cover; }
 
-/* 6. Redes sociais */
 .redes-sociais {
-  display: flex; justify-content: center;
-  gap: var(--spacing);
-  margin-bottom: var(--spacing);
+  display:flex; justify-content:center;
+  gap:var(--spacing); margin-bottom:var(--spacing);
 }
-.redes-sociais img {
-  width: 40px; height: 40px;
-  transition: transform 0.2s;
-}
-.redes-sociais img:hover {
-  transform: scale(1.1);
-}
+.redes-sociais img,
+.guia img { width:var(--icon-size); height:var(--icon-size); }
+.redes-sociais img:hover { transform:scale(1.1); }
 
-/* 7. Formulário */
-.formulario h2 { color: var(--color-secondary); }
-.formulario p { margin-bottom: var(--spacing); }
-form {
-  display: grid;
-  gap: var(--spacing);
-  max-width: 500px;
-  margin: 0 auto var(--spacing);
+.formulario h2 { margin-bottom:var(--spacing);} 
+form { display:grid; gap:var(--spacing); max-width:500px; margin:0 auto var(--spacing);} 
+.campo label { display:block; margin-bottom:4px; }
+.campo input, .campo select, .campo textarea {
+  width:100%; padding:12px;
+  background:rgba(255,255,255,0.1);
+  color:var(--text-color);
+  border:1px solid #444;
+  border-radius:2px;
 }
-.campo label {
-  display: block;
-  margin-bottom: 4px;
-  color: var(--color-secondary);
-}
-.campo input,
-.campo select,
-.campo textarea {
-  width: 100%; padding: 12px;
-  border: none; border-radius: var(--radius);
-  background: rgba(255,255,255,0.1);
-  color: var(--color-secondary);
-}
-.campo input:focus,
-.campo select:focus,
-.campo textarea:focus {
-  outline: 2px solid var(--color-primary);
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline:2px solid var(--primary);
 }
 button[type="submit"] {
-  padding: 12px 24px;
-  border: none; border-radius: var(--radius);
-  background: var(--color-primary);
-  color: var(--color-bg);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-button[type="submit"]:hover {
-  background: rgba(197,157,95,0.8);
+  padding:12px 24px; background:var(--primary);
+  color:var(--bg-color); border:none; cursor:pointer;
 }
 
-/* 8. Navegação de links */
 .navegacao {
-  display: flex; flex-wrap: wrap;
-  justify-content: center; gap: var(--spacing);
-  margin-bottom: var(--spacing);
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:var(--spacing); margin-bottom:var(--spacing);
 }
 .guia {
-  flex: 1 1 200px;
-  background: rgba(255,255,255,0.1);
-  padding: 12px 16px;
-  border-radius: var(--radius);
-  display: flex; align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--color-secondary);
-  transition: transform 0.2s, background 0.2s;
+  background:rgba(255,255,255,0.1);
+  padding:12px 16px; display:flex; align-items:center; gap:12px;
+  text-decoration:none; color:var(--text-color);
+  transition:background 0.2s;
 }
-.guia:hover {
-  transform: translateY(-4px);
-  background: rgba(255,255,255,0.2);
-}
-.guia img {
-  width: 32px; height: 32px; flex-shrink: 0;
-}
-.guia p { flex: 1; margin: 0; }
+.guia:hover { background:rgba(255,255,255,0.2); }
 
-/* 9. Seção sobre */
-.sobre h3 { margin-top: var(--spacing); }
-.sobre p {
-  max-width: 600px;
-  margin: var(--spacing) auto;
-  color: var(--color-secondary);
-  line-height: 1.5;
-}
+.sobre h3 { margin-top:var(--spacing); }
+.sobre p { max-width:600px; margin:var(--spacing) auto; line-height:1.5; }
 
-/* 10. Responsividade */
-@media (max-width: 600px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  .image-container { width: 150px; height: 150px; }
-  .navegacao { flex-direction: column; }
+@media(max-width:600px) {
+  .image-container { width:200px; height:200px; }
+  .guia img, .redes-sociais img { width:32px; height:32px; }
 }
