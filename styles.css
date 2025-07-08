@@ -74,7 +74,34 @@ body::before {
   flex: 1;
 }
 .navegacao a {
-  /* preencher container de .guia completamente */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background 0.3s, transform 0.2s;
+}
+.navegacao a:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+.navegacao a img:not(.icone-seta) {
+  width: 32px !important;
+  height: 32px !important;
+  margin-right: 0.75rem !important;
+}
+.navegacao a img.icone-seta {
+  width: 16px !important;
+  height: 16px !important;
+  margin: 0 !important;
+}
+*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -268,23 +295,21 @@ body::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 4px; /* quadrado com cantos suaves */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  transition: background 0.3s, transform 0.2s;
+  padding: 0; /* remove caixa de fundo */
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.2s;
 }
 .redes-sociais a:hover {
-  background: rgba(255,255,255,0.2);
   transform: translateY(-2px);
 }
 .redes-sociais a img {
-  width: 24px;
-  height: 24px;
+  width: 32px; /* maior para destaque */
+  height: 32px;
 }
 
-/* Seção SOBRE */
+/* Seção SOBRE *//* Seção SOBRE */
 .sobre h3 { margin-top: var(--spacing); }
 .sobre p { max-width: 600px; margin: var(--spacing) auto; line-height: 1.5; }
 
