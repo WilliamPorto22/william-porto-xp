@@ -4,9 +4,9 @@
 :root {
   --font: 'Poppins', sans-serif;
   --bg-color: #0e1116;
-  --text-color: #f1f11;
-  --primary: #c59d5f;
-  --secondary: #3DA6F2;
+  --text-color: #ececec; /* tons claros para texto */
+  --primary: #c59d5f; /* cor de destaque primário */
+  --secondary: #3DA6F2; /* cor de destaque secundário */
   --spacing: 16px;
   --max-width: 1000px;
   --anim: 0.6s ease-out;
@@ -155,8 +155,16 @@ body::before {
 }
 
 /* Tipografia */
-.container-principal h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: var(--spacing); color: var(--primary); }
-.container-principal h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: var(--spacing); color: var(--primary); }
+.container-principal h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem); /* maior destaque */
+  margin-bottom: var(--spacing);
+  color: var(--primary); /* cor primária */
+}
+.container-principal h2 {
+  font-size: clamp(1rem, 3vw, 1.5rem); /* tamanho reduzido */
+  margin-bottom: var(--spacing);
+  color: var(--secondary); /* cor secundária */
+}
 .container-principal h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); margin-bottom: var(--spacing); color: var(--primary); }
 .container-principal p { font-size: 1rem; margin-bottom: var(--spacing); color: var(--text-color); }
 
