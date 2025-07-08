@@ -47,8 +47,8 @@
           <input type="text" id="telefone" name="telefone" placeholder="WhatsApp" required maxlength="15">
         </div>
         <div class="campo">
-          <input type="text" id="nome" name="nome" placeholder="Patrimônio líquido atual" required>
-          <select id="patrimonioAtual" name="patrimonioAtual" required>       
+          <select id="patrimonioAtual" name="patrimonioAtual" required>   
+            <option value="0-20000">Patrimonio Atual</option>    
             <option value="0-20000">R$ 0 – R$ 20.000,00</option>
             <option value="20000-50000">R$ 20.000,00 – R$ 50.000,00</option>
             <option value="50000-100000">R$ 50.000,00 – R$ 100.000,00</option>
@@ -68,7 +68,7 @@
           </select>
         </div>
         <div class="campo">
-          <label for="mensagem">Interesse / Observações</label>
+     
           <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia te interessa" rows="5" required></textarea>
         </div>
         <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
