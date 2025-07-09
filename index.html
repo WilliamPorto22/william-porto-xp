@@ -52,7 +52,7 @@
     </nav>
 
     <!-- Iframe oculto para submissão sem CORS -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" onload="if(submitted) showSuccess()"></iframe>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
 
     <!-- Formulário de contato -->
     <section class="formulario" aria-labelledby="form-titulo">
@@ -61,8 +61,7 @@
       <form id="contatoForm"
             action="https://formcarry.com/s/KzpmIQo0Dg_"
             method="POST"
-            target="hidden_iframe"
-            onsubmit="submitted = true">
+            target="hidden_iframe">
         <div class="campo">
           <input
             type="text"
