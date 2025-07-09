@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const successDiv = document.getElementById('successMessage');
   const telInput   = document.getElementById('telefone');
 
-  // Máscaras para telefone: (00) 00000-0000 ou (00) 0000-0000
+  // Máscara para telefone
   const fullPattern  = /^(\d{2})(\d{5})(\d{4})$/;
   const shortPattern = /^(\d{2})(\d{4})(\d{4})$/;
 
@@ -24,31 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // não recarrega a página
+    e.preventDefault();
 
     try {
       const response = await fetch(form.action, {
         method: 'POST',
+        headers: { 'Accept': 'application/json' },
         body: new FormData(form)
       });
 
       if (response.ok) {
-        // limpa campos (se quiser resetar)
         form.reset();
-        // esconde o formulário e mostra a div de sucesso
         form.hidden       = true;
         successDiv.hidden = false;
       } else {
-        // tenta ler mensagem de erro do servidor
-        let msg = 'Erro ao enviar. Tente novamente.';
-        try {
-          const data = await response.json();
-          msg = data.message || msg;
-        } catch {}
-        alert(msg);
+        const err = await response.json();
+        alert(err.message || 'Erro ao enviar. Tente novamente.');
       }
     } catch {
-      alert('Erro de conexão. Verifique sua internet e tente novamente.');
+      alert('Erro de conexão. Tente novamente.');
     }
   });
 });
