@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="styles.css">
 
   <!-- Favicon -->
-  <link rel="icon" href="imagens/xp (1).webp" type="image/webp">
+  <link rel="icon" href="imagens/xp.png" type="image/png">
   <link rel="apple-touch-icon" href="imagens/xp.png">
 </head>
 <body>
@@ -57,17 +57,34 @@
       <p>Preencha os dados abaixo e entrarei em contato com você</p>
       <form id="contatoForm" action="https://formcarry.com/s/KzpmIQo0Dg_" method="POST">
         <div class="campo">
-          
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Seu nome"
+            aria-label="Seu nome"
+            required
+          >
         </div>
         <div class="campo">
-         
-          <input type="tel" id="telefone" name="telefone" placeholder="WhatsApp" required maxlength="15">
+          <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            placeholder="WhatsApp"
+            aria-label="WhatsApp"
+            required
+            maxlength="15"
+          >
         </div>
         <div class="campo">
-         
-          <select id="patrimonioAtual" name="patrimonioAtual" required>
-            <option value="">Selecione</option>
+          <select
+            id="patrimonioAtual"
+            name="patrimonioAtual"
+            aria-label="Patrimônio Atual"
+            required
+          >
+            <option value="" disabled selected>Patrimônio Atual</option>
             <option value="0-20000">R$ 0 – R$ 20.000,00</option>
             <option value="20000-50000">R$ 20.000,00 – R$ 50.000,00</option>
             <option value="50000-100000">R$ 50.000,00 – R$ 100.000,00</option>
@@ -77,9 +94,13 @@
           </select>
         </div>
         <div class="campo">
-         
-          <select id="investimentoMensal" name="investimentoMensal" required>
-            <option value="">Selecione</option>
+          <select
+            id="investimentoMensal"
+            name="investimentoMensal"
+            aria-label="Investimento Mensal Planejado"
+            required
+          >
+            <option value="" disabled selected>Investimento Mensal</option>
             <option value="0-500">R$ 0 – R$ 500,00</option>
             <option value="500-1500">R$ 500,00 – R$ 1.500,00</option>
             <option value="1500-10000">R$ 1.500,00 – R$ 10.000,00</option>
@@ -87,15 +108,21 @@
           </select>
         </div>
         <div class="campo">
-        
-          <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia te interessa" rows="5" required></textarea>
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            placeholder="Qual produto ou estratégia te interessa"
+            aria-label="Mensagem de interesse"
+            rows="5"
+            required
+          ></textarea>
         </div>
         <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
         <button type="submit">Enviar</button>
         <p class="consentimento">Ao enviar, você concorda com o uso de dados para contato.</p>
       </form>
 
-      <!-- Mensagem de sucesso (inicialmente oculta) -->
+      <!-- Mensagem de sucesso -->
       <div id="successMessage" class="success-message" hidden>
         <p>🎉 Obrigado! Seu formulário foi enviado com sucesso.</p>
         <p>O Assessor <strong>William Porto</strong> entrará em contato em breve.</p>
@@ -125,9 +152,7 @@
       <h3 id="sobre-titulo">Seu Relógio Financeiro Já Está Correndo</h3>
       <p>
         Enquanto você decide se começa, o mercado não faz pausa; ele remunera quem age com
-        <strong>método, proteção e constância</strong>. Eu desenho a estratégia, monitoro cada passo e ajusto a rota,
-        você colhe a tranquilidade de ver seu patrimônio crescer sem adiar sonhos. <em>Se tempo é dinheiro,
-        deixe o seu trabalhar para você a partir de agora.</em>
+        <strong>método, proteção e constância</strong>. Eu desenho a estratégia, monitoro cada passo e ajusto a rota, você colhe a tranquilidade de ver seu patrimônio crescer sem adiar sonhos. <em>Se tempo é dinheiro, deixe o seu trabalhar para você a partir de agora.</em>
       </p>
       <p>Ável | Assessoria credenciada à XP Investimentos<br>Premiada como TOP 1 XP 2024</p>
     </section>
