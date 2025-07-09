@@ -111,6 +111,7 @@ body::before {
 .container-principal {
   width: 90%;
   max-width: var(--max-width);
+  margin: 0 auto;
   padding: calc(var(--spacing) * 2);
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(8px);
@@ -190,15 +191,6 @@ button[type="submit"] {
   cursor: pointer;
   transition: transform 0.2s var(--anim-ease), box-shadow 0.2s var(--anim-ease);
 }
-button[type="submit"]:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.30);
-  background: #268edc;
-}
-button[type="submit"]:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
 
 /* Mensagem de sucesso */
 .success-message {
@@ -233,7 +225,7 @@ button[type="submit"]:active {
   height: 32px;
 }
 
-/* Seção "sobre" */
+/* Seção “sobre” */
 .sobre h3 {
   font-size: 1.12rem;
   margin-top: var(--spacing);
