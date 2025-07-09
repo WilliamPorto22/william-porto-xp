@@ -14,7 +14,9 @@
 }
 
 /* Reset básico */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,7 +29,11 @@ html {
   line-height: 1.5;
 }
 
+/* Layout base */
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: var(--bg-color);
   color: var(--text-color);
   position: relative;
@@ -35,14 +41,11 @@ body {
   overflow-x: hidden;
 }
 
-/* Camadas de fundo (removido noise.svg) */
+/* Fundo com imagem e gradiente (noise.svg removido) */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   z-index: -1;
   pointer-events: none;
   background-image:
@@ -56,10 +59,10 @@ body::before {
 /* Animação genérica */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Navegação */
+/* Navegação de links principais */
 .navegacao {
   display: flex;
   flex-wrap: wrap;
@@ -111,7 +114,7 @@ body::before {
 .container-principal {
   width: 90%;
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: var(--spacing) auto; /* margem vertical igual a --spacing, horizontal auto */
   padding: calc(var(--spacing) * 2);
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(8px);
@@ -138,22 +141,30 @@ body::before {
 
 /* Avatar redondo */
 .image-container {
-  margin: 0 auto var(--spacing);
+  width: clamp(250px, 35vw, 400px);
+  height: clamp(250px, 35vw, 400px);
+  margin-bottom: var(--spacing);
   overflow: hidden;
   border-radius: 50%;
   position: relative;
   z-index: 2;
   animation: fadeInUp calc(var(--anim-duration) / 2) var(--anim-ease) both;
 }
-.image-container img { object-fit: cover; }
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-/* Formulário */
+/* Formulário de contato */
 .container-principal form {
   max-width: 600px;
   width: 90%;
   margin: 0 auto 2rem;
 }
-.campo { margin-bottom: 1.25rem; }
+.campo {
+  margin-bottom: 1.25rem;
+}
 .campo input,
 .campo select,
 .campo textarea {
@@ -164,12 +175,14 @@ body::before {
   border: 1px solid var(--primary);
   border-radius: 4px;
 }
-select { appearance: none; }
+.campo select { appearance: none; }
 .campo option {
   background: rgba(14,17,22,0.9);
   color: var(--text-color);
 }
-input:focus, select:focus, textarea:focus {
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--primary);
 }
@@ -190,6 +203,15 @@ button[type="submit"] {
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: transform 0.2s var(--anim-ease), box-shadow 0.2s var(--anim-ease);
+}
+button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.30);
+  background: #268edc;
+}
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 /* Mensagem de sucesso */
@@ -219,7 +241,9 @@ button[type="submit"] {
   justify-content: center;
   transition: transform 0.2s var(--anim-ease);
 }
-.redes-sociais a:hover { transform: translateY(-2px); }
+.redes-sociais a:hover {
+  transform: translateY(-2px);
+}
 .redes-sociais a img {
   width: 32px;
   height: 32px;
@@ -239,7 +263,9 @@ button[type="submit"] {
 
 /* Responsivo */
 @media (max-width: 600px) {
-  html { font-size: 14px; }
+  html {
+    font-size: 14px;
+  }
   .container-principal {
     width: 98vw;
     max-width: 100vw;
@@ -247,21 +273,82 @@ button[type="submit"] {
     box-shadow: none;
     border-radius: 0;
   }
-  .container-principal h1 { font-size: 2rem !important; margin-bottom: 12px; line-height: 1.15; }
-  .container-principal h2 { font-size: 0.99rem !important; margin-bottom: 8px; line-height: 1.2; }
-  .container-principal p, .sobre p { font-size: 0.96rem !important; margin-bottom: 10px; line-height: 1.35; }
-  .image-container { width: 108px !important; height: 108px !important; margin-bottom: 14px; }
-  .image-container img { width: 100% !important; height: 100% !important; }
-  .redes-sociais { gap: 12px; margin-bottom: 14px; }
-  .redes-sociais a img { width: 26px !important; height: 26px !important; }
-  .navegacao { gap: 10px; margin: 20px 0 10px; flex-direction: column; align-items: stretch; }
-  .navegacao .guia { max-width: 100%; flex: 1 1 100%; }
-  .navegacao a { padding: 12px 8px; font-size: 0.98rem; }
-  .navegacao a img:not(.icone-seta) { width: 24px !important; height: 24px !important; margin-right: 0.65rem; }
-  .navegacao a .icone-seta { width: 16px !important; height: 16px !important; }
-  .container-principal form { width: 100%; max-width: 100vw; padding: 0; margin: 0 auto 1rem; }
-  .campo { margin-bottom: 0.8rem; }
-  button[type="submit"] { width: 100%; padding: 12px 0; font-size: 1rem; }
-  .sobre h3 { font-size: 0.99rem !important; margin-top: 16px; }
-  .sobre p { font-size: 0.97rem !important; margin-bottom: 8px; }
+  .container-principal h1 {
+    font-size: 2rem !important;
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .container-principal h2 {
+    font-size: 0.99rem !important;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .container-principal p,
+  .sobre p {
+    font-size: 0.96rem !important;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .image-container {
+    width: 108px !important;
+    height: 108px !important;
+    margin-bottom: 14px;
+  }
+  .image-container img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .redes-sociais {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .redes-sociais a img {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  .navegacao {
+    gap: 10px;
+    margin: 20px 0 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .navegacao .guia {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .navegacao a {
+    padding: 12px 8px;
+    font-size: 0.98rem;
+  }
+  .navegacao a img:not(.icone-seta) {
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 0.65rem;
+  }
+  .navegacao a .icone-seta {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .container-principal form {
+    width: 100%;
+    max-width: 100vw;
+    padding: 0;
+    margin: 0 auto 1rem;
+  }
+  .campo {
+    margin-bottom: 0.8rem;
+  }
+  button[type="submit"] {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+  .sobre h3 {
+    font-size: 0.99rem !important;
+    margin-top: 16px;
+  }
+  .sobre p {
+    font-size: 0.97rem !important;
+    margin-bottom: 8px;
+  }
 }
