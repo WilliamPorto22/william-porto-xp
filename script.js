@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   telInput.addEventListener('input', ({ target }) => {
     const digits = target.value.replace(/\D/g, '').slice(0, 11);
     let formatted = digits;
-
     if (digits.length === 11 && fullPattern.test(digits)) {
       formatted = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
     } else if (digits.length === 10 && shortPattern.test(digits)) {
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (digits.length > 2) {
       formatted = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
     }
-
     target.value = formatted;
   });
 
