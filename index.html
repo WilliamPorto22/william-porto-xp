@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="imagens/william.webp" as="image">
   <link rel="preload" href="imagens/fundi.jpg.webp" as="image">
-  <link rel="preload" href="imagens/xp (1).webp" as="image">
+  <link rel="preload" href="imagens/xp.png" as="image">
 
   <!-- Fontes & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
 
   <!-- Favicon -->
   <link rel="icon" href="imagens/xp (1).webp" type="image/webp">
-  <link rel="apple-touch-icon" href="imagens/xp (1).webp">
+  <link rel="apple-touch-icon" href="imagens/xp.png">
 </head>
 <body>
   <div class="container-principal">
@@ -57,15 +57,15 @@
       <p>Preencha os dados abaixo e entrarei em contato com você</p>
       <form id="contatoForm" action="https://formcarry.com/s/KzpmIQo0Dg_" method="POST">
         <div class="campo">
-          <label for="nome">Seu nome</label>
+          
           <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
         </div>
         <div class="campo">
-          <label for="telefone">WhatsApp</label>
+         
           <input type="tel" id="telefone" name="telefone" placeholder="WhatsApp" required maxlength="15">
         </div>
         <div class="campo">
-          <label for="patrimonioAtual">Patrimônio Atual</label>
+         
           <select id="patrimonioAtual" name="patrimonioAtual" required>
             <option value="">Selecione</option>
             <option value="0-20000">R$ 0 – R$ 20.000,00</option>
@@ -77,7 +77,7 @@
           </select>
         </div>
         <div class="campo">
-          <label for="investimentoMensal">Investimento Mensal Planejado</label>
+         
           <select id="investimentoMensal" name="investimentoMensal" required>
             <option value="">Selecione</option>
             <option value="0-500">R$ 0 – R$ 500,00</option>
@@ -87,12 +87,12 @@
           </select>
         </div>
         <div class="campo">
-          <label for="mensagem">Interesse</label>
+        
           <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia te interessa" rows="5" required></textarea>
         </div>
         <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
         <button type="submit">Enviar</button>
-        <p class="consentimento">Ao enviar, você concorda com o uso de dados para contato e assessoria.</p>
+        <p class="consentimento">Ao enviar, você concorda com o uso de dados para contato.</p>
       </form>
 
       <!-- Mensagem de sucesso (inicialmente oculta) -->
@@ -106,7 +106,7 @@
     <section class="navegacao" aria-label="Links Principais">
       <div class="guia">
         <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498">
-          <img src="imagens/xp (1).webp" alt="XP" loading="lazy">
+          <img src="imagens/xp.png" alt="XP" loading="lazy">
           <p>Abra sua Conta XP</p>
           <img class="icone-seta" src="imagens/seta.webp" alt="Seta" loading="lazy">
         </a>
