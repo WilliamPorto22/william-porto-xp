@@ -1,61 +1,58 @@
-const form = document.getElementById("contatoForm");
-const statusDiv = document.getElementById("mensagemStatus");
-const campoTelefone = document.getElementById("telefone");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contatoForm');
+  const successDiv = document.getElementById('successMessage');
+  const telInput = document.getElementById('telefone');
 
-campoTelefone.addEventListener("input", function (e) {
+  // Pré-compila padrões de máscara para não recriar regex a cada input
+  const fullPattern  = /^(\d{2})(\d{5})(\d{4})$/;
+  const shortPattern = /^(\d{2})(\d{4})(\d{4})$/;
 
-    let valor = e.target.value.replace(/\D/g, '').slice(0, 11);
+  // Máscara de telefone
+  telInput.addEventListener('input', ({ target }) => {
+    let digits = target.value.replace(/\D/g, '').slice(0, 11);
+    let formatted = digits;
 
-    if (valor.length >= 2) {
-
-        valor = `(${valor.substring(0, 2)}) ${valor.substring(2)}`;
-
+    if (digits.length > 2) {
+      const area = digits.slice(0, 2);
+      const rest = digits.slice(2);
+      // Celular (11 dígitos)
+      if (digits.length === 11 && fullPattern.test(digits)) {
+        formatted = `(${area}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+      }
+      // Telefone fixo (10 dígitos)
+      else if (digits.length === 10 && shortPattern.test(digits)) {
+        formatted = `(${area}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+      }
+      // Enquanto o usuário digita
+      else {
+        formatted = `(${area}) ${rest}`;
+      }
     }
-    
-    if (valor.length >= 10) {
 
-        valor = valor.replace(/^(\(\d{2}\))\s?(\d{5})(\d{4})$/, "$1 $2-$3");
+    target.value = formatted;
+  });
 
-    } else if (valor.length >= 9) {
-        
-        valor = valor.replace(/^(\(\d{2}\))\s?(\d{4})(\d{4})$/, "$1 $2-$3");
+  // Intercepta o submit, envia via fetch e mostra a mensagem de sucesso
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
 
+      if (response.ok) {
+        // esconde o form e exibe a div de sucesso
+        form.hidden = true;
+        successDiv.hidden = false;
+      } else {
+        const data = await response.json();
+        alert(data.message || 'Erro ao enviar. Tente novamente.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Erro de conexão. Tente mais tarde.');
     }
-
-    e.target.value = valor;
-
-});
-
-form.addEventListener("submit", function (e) {
-
-    e.preventDefault(); 
-
-    fetch(form.action, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
-    })
-        .then((response) => {
-
-            if (response.ok) {
-                statusDiv.textContent = "Mensagem enviada com sucesso!";
-                statusDiv.className = "sucesso";
-                form.reset();
-
-            } else {
-
-                response.json().then(data => {
-                    statusDiv.textContent = data.message || "Erro ao enviar. Tente novamente.";
-                    statusDiv.className = "erro";
-                });
-
-            }
-
-        })
-
-        .catch(() => {
-            statusDiv.textContent = "Erro de conexão. Tente mais tarde.";
-            statusDiv.className = "erro";
-        });
-
+  });
 });
