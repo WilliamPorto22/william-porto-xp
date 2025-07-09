@@ -2,11 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form       = document.getElementById('contatoForm');
   const successDiv = document.getElementById('successMessage');
-  const iframe     = document.getElementById('hidden_iframe');
   const telInput   = document.getElementById('telefone');
-  let submitted    = false;
 
-  // Máscaras para telefone
+  // Máscara de telefone
   const fullPattern  = /^(\d{2})(\d{5})(\d{4})$/;
   const shortPattern = /^(\d{2})(\d{4})(\d{4})$/;
 
@@ -23,16 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     target.value = formatted;
   });
 
-  // Marca que o form foi submetido
-  form.addEventListener('submit', () => {
-    submitted = true;
-  });
-
-  // Quando o iframe carregar após o submit, mostramos a mensagem
-  iframe.addEventListener('load', () => {
-    if (submitted) {
-      form.hidden       = true;
-      successDiv.hidden = false;
-    }
+  // Ao submeter, esconde o form e mostra a mensagem
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    form.style.display = 'none';
+    successDiv.style.display = 'block';
+    this.submit(); // envia para o iframe oculto sem reload de página
   });
 });
