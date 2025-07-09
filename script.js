@@ -1,10 +1,16 @@
 // script.js
-document.addEventListener('DOMContentLoaded', () => {
-  const form       = document.getElementById('contatoForm');
-  const successDiv = document.getElementById('successMessage');
-  const telInput   = document.getElementById('telefone');
+let submitted = false;
 
-  // Máscara para telefone
+// Função chamada pelo iframe onload
+function showSuccess() {
+  document.getElementById('contatoForm').hidden     = true;
+  document.getElementById('successMessage').hidden = false;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const telInput = document.getElementById('telefone');
+
+  // Máscaras para telefone: (00) 00000-0000 ou (00) 0000-0000
   const fullPattern  = /^(\d{2})(\d{5})(\d{4})$/;
   const shortPattern = /^(\d{2})(\d{4})(\d{4})$/;
 
@@ -21,28 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     target.value = formatted;
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      });
-
-      if (response.ok) {
-        form.reset();
-        form.hidden       = true;
-        successDiv.hidden = false;
-      } else {
-        const err = await response.json();
-        alert(err.message || 'Erro ao enviar. Tente novamente.');
-      }
-    } catch {
-      alert('Erro de conexão. Tente novamente.');
-    }
   });
 });
