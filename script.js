@@ -1,31 +1,62 @@
-// script.js
-document.addEventListener('DOMContentLoaded', () => {
-  const form       = document.getElementById('contatoForm');
-  const successDiv = document.getElementById('successMessage');
-  const telInput   = document.getElementById('telefone');
+const form = document.getElementById("contatoForm");
+const statusDivSucces = document.getElementById("successMessage");
+const statusDivError = document.getElementById("erroMessage");
+const campoTelefone = document.getElementById("telefone");
 
-  // Máscara de telefone
-  const fullPattern  = /^(\d{2})(\d{5})(\d{4})$/;
-  const shortPattern = /^(\d{2})(\d{4})(\d{4})$/;
+campoTelefone.addEventListener("input", function (e) {
 
-  telInput.addEventListener('input', ({ target }) => {
-    const digits = target.value.replace(/\D/g, '').slice(0, 11);
-    let formatted = digits;
-    if (digits.length === 11 && fullPattern.test(digits)) {
-      formatted = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
-    } else if (digits.length === 10 && shortPattern.test(digits)) {
-      formatted = `(${digits.slice(0,2)}) ${digits.slice(2,6)}-${digits.slice(6)}`;
-    } else if (digits.length > 2) {
-      formatted = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+    let valor = e.target.value.replace(/\D/g, '').slice(0, 11);
+
+    if (valor.length >= 2) {
+
+        valor = `(${valor.substring(0, 2)}) ${valor.substring(2)}`;
+
     }
-    target.value = formatted;
-  });
+    
+    if (valor.length >= 10) {
 
-  // Ao submeter, esconde o form e mostra a mensagem
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    form.style.display = 'none';
-    successDiv.style.display = 'block';
-    this.submit(); // envia para o iframe oculto sem reload de página
-  });
+        valor = valor.replace(/^(\(\d{2}\))\s?(\d{5})(\d{4})$/, "$1 $2-$3");
+
+    } else if (valor.length >= 9) {
+        
+        valor = valor.replace(/^(\(\d{2}\))\s?(\d{4})(\d{4})$/, "$1 $2-$3");
+
+    }
+
+    e.target.value = valor;
+
+});
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault(); 
+
+    fetch(form.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(form),
+    })
+        .then((response) => {
+
+            if (response.ok) {
+                statusDivSucces.style.display = "block";
+                statusDivError.style.display = "none";
+                form.reset();
+
+            } else {
+
+                response.json().then(data => {
+                  statusDivSucces.style.display = "none";
+                  statusDivError.style.display = "block";
+                });
+
+            }
+
+        })
+
+        .catch(() => {
+            statusDivSucces.style.display = "none";
+            statusDivError.style.display = "block";
+        });
+
 });
