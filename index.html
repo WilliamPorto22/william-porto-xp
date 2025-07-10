@@ -4,66 +4,86 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
   <title>William Porto | Assessor de Investimentos XP</title>
   <meta name="description" content="William Porto é Assessor de Investimentos XP. Planejamento financeiro com método, proteção e constância para multiplicar seu patrimônio com liberdade e prosperidade.">
 
+  <!-- CSS crítico inline para header e imagem -->
   <style>
     header { text-align: center; margin: 24px 0; }
     header h1 { font-family: 'Poppins', sans-serif; font-size: 2.5rem; color: #3DA6F2; margin: 0; }
     header h2 { font-family: 'Poppins', sans-serif; font-size: 1.25rem; color: #28719b; margin: 8px 0 0; }
     .image-container { width: 250px; height: 250px; margin: 0 auto; overflow: hidden; border-radius: 50%; }
     .image-container img { width: 100%; height: 100%; object-fit: cover; }
-    .success-message { text-align: center; margin-top: 24px; font-family: 'Poppins', sans-serif; }
   </style>
 
+  <!-- Preconnect & Preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="styles.css"></noscript>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonte com display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
   <link rel="icon" href="imagens/xp.png" type="image/png">
   <link rel="apple-touch-icon" href="imagens/xp.png">
 </head>
 <body>
   <div class="container-principal">
 
+    <!-- Cabeçalho -->
     <header>
       <h1>William Porto</h1>
       <h2>Assessor de Investimentos - XP</h2>
     </header>
 
+    <!-- Foto de perfil otimizada (LCP) -->
     <div class="image-container">
-      <img src="imagens/william.webp"
-           width="400" height="417"
-           alt="Foto de William Porto"
-           fetchpriority="high" loading="eager">
+      <img
+        src="imagens/william.webp"
+        width="400"
+        height="417"
+        alt="Foto de William Porto"
+        fetchpriority="high"
+        loading="eager"
+      >
     </div>
 
+    <!-- Redes sociais -->
     <nav class="redes-sociais" aria-label="Redes Sociais">
-      <a href="mailto:william.porto@avel.me"><img src="imagens/email.webp" alt="Email" loading="lazy"></a>
-      <a href="https://www.instagram.com/william_porto0" target="_blank" rel="noopener"><img src="imagens/instagram.webp" alt="Instagram" loading="lazy"></a>
-      <a href="https://www.tiktok.com/@williamporto11" target="_blank" rel="noopener"><img src="imagens/tiktok.webp" alt="TikTok" loading="lazy"></a>
+      <a href="mailto:william.porto@avel.me">
+        <img src="imagens/email.webp" alt="Email" loading="lazy">
+      </a>
+      <a href="https://www.instagram.com/william_porto0" target="_blank" rel="noopener">
+        <img src="imagens/instagram.webp" alt="Instagram" loading="lazy">
+      </a>
+      <a href="https://www.tiktok.com/@williamporto11" target="_blank" rel="noopener">
+        <img src="imagens/tiktok.webp" alt="TikTok" loading="lazy">
+      </a>
     </nav>
 
-    <!-- Iframe oculto (mantido para submissão sem reload) -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <!-- Iframe oculto para submissão sem CORS -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"></iframe>
 
+    <!-- Formulário de contato -->
     <section class="formulario" aria-labelledby="form-titulo">
       <h2 id="form-titulo">Quer uma assessoria de investimentos personalizada?</h2>
       <p>Preencha os dados abaixo e entrarei em contato com você</p>
-
       <form id="contatoForm"
             action="https://formcarry.com/s/KzpmIQo0Dg_"
             method="POST"
             target="hidden_iframe">
         <div class="campo">
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" aria-label="Seu nome" required>
         </div>
         <div class="campo">
-          <input type="tel" id="telefone" name="telefone" placeholder="WhatsApp" required maxlength="15">
+          <input type="tel" id="telefone" name="telefone" placeholder="WhatsApp" aria-label="WhatsApp" required maxlength="15">
         </div>
         <div class="campo">
-          <select id="patrimonioAtual" name="patrimonioAtual" required>
+          <select id="patrimonioAtual" name="patrimonioAtual" aria-label="Patrimônio Atual" required>
             <option value="" disabled selected>Patrimônio Atual</option>
             <option value="0-20000">R$ 0 – R$ 20.000,00</option>
             <option value="20000-50000">R$ 20.000,00 – R$ 50.000,00</option>
@@ -74,7 +94,7 @@
           </select>
         </div>
         <div class="campo">
-          <select id="investimentoMensal" name="investimentoMensal" required>
+          <select id="investimentoMensal" name="investimentoMensal" aria-label="Investimento Mensal Planejado" required>
             <option value="" disabled selected>Investimento Mensal</option>
             <option value="0-500">R$ 0 – R$ 500,00</option>
             <option value="500-1500">R$ 500,00 – R$ 1.500,00</option>
@@ -83,7 +103,7 @@
           </select>
         </div>
         <div class="campo">
-          <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia te interessa" rows="5" required></textarea>
+          <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia te interessa" aria-label="Mensagem de interesse" rows="5" required></textarea>
         </div>
         <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
         <button type="submit">Enviar</button>
@@ -91,20 +111,44 @@
       </form>
 
       <!-- Mensagem de sucesso -->
-      <div id="successMessage" class="success-message" style="display: none;" aria-live="polite">
+      <div id="successMessage" class="success-message" hidden>
         <p>🎉 Obrigado! Seu formulário foi enviado com sucesso.</p>
         <p>O Assessor <strong>William Porto</strong> entrará em contato em breve.</p>
       </div>
+    </section>
 
       <div id="erroMessage" class="success-message" style="display: none;" aria-live="polite">
         <p> Houve um erro ao enviar sua mensagem, tente novamente mais tarde.</p>
+      </div>
+
+    <!-- Links principais -->
+    <section class="navegacao" aria-label="Links Principais">
+      <div class="guia">
+        <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498">
+          <img src="imagens/xp.png" alt="XP" loading="lazy">
+          <p>Abra sua Conta XP</p>
+          <img class="icone-seta" src="imagens/seta.webp" alt="Seta" loading="lazy">
+        </a>
+      </div>
+      <div class="guia">
+        <a href="https://api.whatsapp.com/send/?phone=5551993563021&type=phone_number&app_absent=0">
+          <img src="imagens/whats.webp" alt="WhatsApp" loading="lazy">
+          <p>WhatsApp</p>
+          <img class="icone-seta" src="imagens/seta.webp" alt="Seta" loading="lazy">
+        </a>
       </div>
     </section>
 
-    <!-- ... demais seções do site ... -->
+    <!-- Sobre / Mensagem final -->
+    <section class="sobre" aria-labelledby="sobre-titulo">
+      <h3 id="sobre-titulo">Seu Relógio Financeiro Já Está Correndo</h3>
+      <p>
+        Enquanto você decide se começa, o mercado não faz pausa; ele remunera quem age com <strong>método, proteção e constância</strong>. Eu desenho a estratégia, monitoro cada passo e ajusto a rota, você colhe a tranquilidade de ver seu patrimônio crescer sem adiar sonhos. <em>Se tempo é dinheiro, deixe o seu trabalhar para você a partir de agora.</em>
+      </p>
+      <p>Ável | Assessoria credenciada à XP Investimentos<br>Premiada como TOP 1 XP 2024</p>
+    </section>
 
   </div>
-
   <script src="script.js" defer></script>
 </body>
 </html>
