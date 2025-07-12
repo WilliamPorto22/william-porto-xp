@@ -104,6 +104,13 @@ body::before {
   object-fit: cover;
 }
 
+.avel-xp-logo img {
+  width: clamp(120px, 20vw, 200px);
+  height: auto;
+  display: inline-block;
+}
+
+
 /* Formulário de contato */
 .container-principal form {
   max-width: 600px;
