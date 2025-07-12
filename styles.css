@@ -78,12 +78,12 @@ body::before {
   color: var(--primary);
 }
 .container-principal h2 {
-  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-size: clamp(1.25rem, 4vw, 1.75rem); /* aumentado */
   margin-bottom: var(--spacing);
-  color: var(--secondary);
+  color: rgba(61,166,242,0.8);           /* mais clara */
 }
 .container-principal p {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* reduzido */
   margin-bottom: var(--spacing);
 }
 
@@ -103,13 +103,6 @@ body::before {
   height: 100%;
   object-fit: cover;
 }
-
-.avel-xp-logo img {
-  width: clamp(120px, 20vw, 200px);
-  height: auto;
-  display: inline-block;
-}
-
 
 /* Formulário de contato */
 .container-principal form {
@@ -180,7 +173,7 @@ button[type="submit"]:active {
 .sobre p {
   max-width: 600px;
   margin: var(--spacing) auto;
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* reduzido */
   line-height: 1.5;
 }
 
@@ -309,7 +302,7 @@ button[type="submit"]:active {
   }
   .container-principal p,
   .sobre p {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
     margin-bottom: 10px;
     line-height: 1.35;
   }
@@ -348,7 +341,7 @@ button[type="submit"]:active {
     margin-top: 16px;
   }
   .sobre p {
-    font-size: 0.87rem !important;
+    font-size: 0.8rem !important;
     margin-bottom: 8px;
   }
 }
