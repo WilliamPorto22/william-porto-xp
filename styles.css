@@ -6,7 +6,7 @@
   --bg-color: #0e1116;
   --text-color: #ececec;
   --primary: #3DA6F2;
-  --secondary: #1e7ec8; /* tom de azul mais estiloso */
+  --secondary: #1e7ec8;
   --whatsapp-color: #25d366;
   --spacing: 16px;
   --max-width: 1000px;
@@ -24,7 +24,7 @@
 /* Tipografia base */
 html {
   font-family: var(--font);
-  font-size: 15px; /* reduzido para parágrafos mais sutis */
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -75,16 +75,21 @@ body::before {
 .container-principal h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: var(--spacing);
-  color: var(--primary);
+  color: var(--secondary); /* mais escuro */
 }
 .container-principal h2 {
-  font-size: clamp(1.25rem, 4vw, 1.75rem);
-  margin-bottom: calc(var(--spacing) * 1.5); /* maior espaçamento abaixo */
-  color: var(--secondary);
+  font-size: clamp(1rem, 3vw, 1.5rem); /* ajustado menor */
+  margin-bottom: calc(var(--spacing) * 1.5);
+  color: var(--primary); /* tom médio */
 }
 .container-principal p {
-  font-size: 0.75rem; /* mais sutil */
+  font-size: 0.75rem;
   margin-bottom: var(--spacing);
+}
+
+/* Ajuste de margem título do formulário */
+#form-titulo {
+  margin-bottom: calc(var(--spacing) * 2);
 }
 
 /* Avatar redondo */
@@ -168,16 +173,16 @@ button[type="submit"]:active {
 .sobre h3 {
   font-size: 1.12rem;
   margin-top: var(--spacing);
-  margin-bottom: calc(var(--spacing) * 2); /* mais espaço abaixo */
-  color: var(--text-color); /* branco */
+  margin-bottom: calc(var(--spacing) * 2);
+  color: var(--text-color); /* mais claro */
 }
 .sobre h3.alternate {
-  color: var(--secondary); /* azul sobre tom para outro h3 */
+  color: var(--secondary);
 }
 .sobre p {
   max-width: 600px;
   margin: var(--spacing) auto;
-  font-size: 0.75rem; 
+  font-size: 0.75rem;
   line-height: 1.5;
 }
 
