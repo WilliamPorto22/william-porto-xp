@@ -25,7 +25,7 @@
   <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
   <!-- Fonte com display=swap -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" href="imagens/xp.png" type="image/png">
@@ -106,7 +106,10 @@
           <textarea id="mensagem" name="mensagem" placeholder="Qual produto ou estratégia te interessa" aria-label="Mensagem de interesse" rows="5" required></textarea>
         </div>
         <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
-        <button type="submit">Enviar</button>
+
+        <!-- Botão de envio com classes atualizadas -->
+        <button type="submit" class="btn btn--primary">Enviar</button>
+
         <p class="consentimento">Ao enviar, você concorda com o uso de dados para contato.</p>
       </form>
 
@@ -117,24 +120,25 @@
       </div>
     </section>
 
-      <div id="erroMessage" class="success-message" style="display: none;" aria-live="polite">
-        <p> Houve um erro ao enviar sua mensagem, tente novamente mais tarde.</p>
-      </div>
+    <div id="erroMessage" class="success-message" style="display: none;" aria-live="polite">
+      <p>Houve um erro ao enviar sua mensagem, tente novamente mais tarde.</p>
+    </div>
 
     <!-- Links principais -->
     <section class="navegacao" aria-label="Links Principais">
       <div class="guia">
-        <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498">
-          <img src="imagens/xp.png" alt="XP" loading="lazy">
-          <p>Abra sua Conta XP</p>
-          <img class="icone-seta" src="imagens/seta.webp" alt="Seta" loading="lazy">
+        <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498"
+           class="btn btn--secondary">
+          <img src="imagens/xp.png" alt="XP" class="btn__icon">
+          <span>Abra sua Conta XP</span>
+          <img src="imagens/seta.webp" alt="Seta" class="btn__icon">
         </a>
       </div>
       <div class="guia">
-        <a href="https://api.whatsapp.com/send/?phone=5551993563021&type=phone_number&app_absent=0">
-          <img src="imagens/whats.webp" alt="WhatsApp" loading="lazy">
-          <p>WhatsApp</p>
-          <img class="icone-seta" src="imagens/seta.webp" alt="Seta" loading="lazy">
+        <a href="https://api.whatsapp.com/send/?phone=5551993563021&type=phone_number&app_absent=0"
+           class="btn btn--whatsapp">
+          <span>WhatsApp</span>
+          <img src="imagens/whats.webp" alt="WhatsApp" class="btn__icon">
         </a>
       </div>
     </section>
