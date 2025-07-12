@@ -58,56 +58,6 @@ body::before {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Navegação de links principais */
-.navegacao {
-  display: flex;
-  gap: var(--spacing);
-  margin: calc(var(--spacing) * 2) auto;
-  max-width: var(--max-width);
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-  z-index: 2;
-}
-.navegacao .guia {
-  flex: 0 1 auto;
-}
-.navegacao a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1.5rem;
-  background: rgba(255,255,255,0.3);
-  border: 1px solid rgba(61,166,242,0.3);
-  border-radius: 6px;
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 1rem;
-  min-width: 200px;
-  max-width: 260px;
-  transition: background 0.25s var(--anim-ease), transform 0.2s var(--anim-ease);
-}
-.navegacao a img:not(.icone-seta) {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-}
-.navegacao a span,
-.navegacao a p {
-  text-align: center;
-  margin: 0;
-}
-.navegacao a .icone-seta {
-  width: 16px;
-  height: 16px;
-  opacity: 0.7;
-}
-.navegacao a:hover {
-  background: rgba(61,166,242,0.4);
-  transform: translateY(-2px);
-}
-
 /* Container principal (glassmorphism) */
 .container-principal {
   width: 90%;
@@ -214,19 +164,75 @@ button[type="submit"]:active {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-/* Mensagem de sucesso */
-.success-message {
-  display: none;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 1.5rem;
-  background: rgba(61,166,242,0.1);
-  border: 1px solid var(--primary);
-  border-radius: 4px;
-  animation: fadeInUp var(--anim-duration) var(--anim-ease) both;
+/* Seção "Sobre" */
+.sobre h3 {
+  font-size: 1.12rem;
+  margin-top: var(--spacing);
+  color: var(--primary);
+}
+.sobre p {
+  max-width: 600px;
+  margin: var(--spacing) auto;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-/* Redes sociais (ícones aumentados) */
+/* Logo Ável XP */
+.avel-xp-logo {
+  text-align: center;
+  margin: 2rem auto 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+.avel-xp-logo img {
+  width: clamp(120px, 20vw, 200px);
+  height: auto;
+  display: inline-block;
+}
+
+/* Navegação de links principais */
+.navegacao {
+  display: flex;
+  gap: var(--spacing);
+  margin: calc(var(--spacing) * 2) auto;
+  max-width: var(--max-width);
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.navegacao .guia {
+  flex: 0 1 auto;
+}
+.navegacao a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255,255,255,0.3);
+  border: 1px solid rgba(61,166,242,0.3);
+  border-radius: 6px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  min-width: 200px;
+  max-width: 260px;
+  transition: background 0.25s var(--anim-ease), transform 0.2s var(--anim-ease);
+}
+.navegacao a img:not(.icone-seta) {
+  width: 32px;
+  height: 32px;
+}
+.navegacao a span {
+  text-align: center;
+  margin: 0;
+}
+.navegacao a:hover {
+  background: rgba(61,166,242,0.4);
+  transform: translateY(-2px);
+}
+
+/* Redes sociais */
 .redes-sociais {
   display: flex;
   justify-content: center;
@@ -247,19 +253,6 @@ button[type="submit"]:active {
 .redes-sociais a img {
   width: clamp(32px, 4vw, 48px);
   height: clamp(32px, 4vw, 48px);
-}
-
-/* Seção “sobre” (parágrafos reduzidos) */
-.sobre h3 {
-  font-size: 1.12rem;
-  margin-top: var(--spacing);
-  color: var(--primary);
-}
-.sobre p {
-  max-width: 600px;
-  margin: var(--spacing) auto;
-  font-size: 0.9rem;
-  line-height: 1.5;
 }
 
 /* Botão Flutuante WhatsApp */
@@ -322,6 +315,9 @@ button[type="submit"]:active {
     width: 36px !important;
     height: 36px !important;
   }
+  .avel-xp-logo img {
+    width: 140px !important;
+  }
   .navegacao {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -329,18 +325,11 @@ button[type="submit"]:active {
     gap: 10px;
     margin: 20px 0 10px;
   }
-  .navegacao .guia {
-    flex: 0 1 auto;
-  }
   .navegacao a {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
     min-width: 180px;
     max-width: 220px;
-  }
-  .navegacao a img:not(.icone-seta) {
-    width: 24px !important;
-    height: 24px !important;
   }
   button[type="submit"] {
     width: 100%;
