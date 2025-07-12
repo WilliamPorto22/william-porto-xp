@@ -6,7 +6,7 @@
   --bg-color: #0e1116;
   --text-color: #ececec;
   --primary: #3DA6F2;
-  --secondary: #28719b;
+  --secondary: #1e7ec8; /* tom de azul mais estiloso */
   --whatsapp-color: #25d366;
   --spacing: 16px;
   --max-width: 1000px;
@@ -24,7 +24,7 @@
 /* Tipografia base */
 html {
   font-family: var(--font);
-  font-size: 16px;
+  font-size: 15px; /* reduzido para parágrafos mais sutis */
   line-height: 1.5;
 }
 
@@ -78,12 +78,12 @@ body::before {
   color: var(--primary);
 }
 .container-principal h2 {
-  font-size: clamp(1.25rem, 4vw, 1.75rem); /* aumentado */
-  margin-bottom: var(--spacing);
-  color: rgba(61,166,242,0.8);           /* mais clara */
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  margin-bottom: calc(var(--spacing) * 1.5); /* maior espaçamento abaixo */
+  color: var(--secondary);
 }
 .container-principal p {
-  font-size: 0.8rem; /* reduzido */
+  font-size: 0.75rem; /* mais sutil */
   margin-bottom: var(--spacing);
 }
 
@@ -111,7 +111,7 @@ body::before {
   margin: 0 auto 2rem;
 }
 .campo {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 .campo input,
 .campo select,
@@ -168,12 +168,16 @@ button[type="submit"]:active {
 .sobre h3 {
   font-size: 1.12rem;
   margin-top: var(--spacing);
-  color: var(--primary);
+  margin-bottom: calc(var(--spacing) * 2); /* mais espaço abaixo */
+  color: var(--text-color); /* branco */
+}
+.sobre h3.alternate {
+  color: var(--secondary); /* azul sobre tom para outro h3 */
 }
 .sobre p {
   max-width: 600px;
   margin: var(--spacing) auto;
-  font-size: 0.8rem; /* reduzido */
+  font-size: 0.75rem; 
   line-height: 1.5;
 }
 
@@ -296,13 +300,13 @@ button[type="submit"]:active {
     line-height: 1.15;
   }
   .container-principal h2 {
-    font-size: 0.99rem !important;
+    font-size: 1rem !important;
     margin-bottom: 8px;
     line-height: 1.2;
   }
   .container-principal p,
   .sobre p {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     margin-bottom: 10px;
     line-height: 1.35;
   }
@@ -337,11 +341,12 @@ button[type="submit"]:active {
     font-size: 1rem;
   }
   .sobre h3 {
-    font-size: 0.99rem !important;
-    margin-top: 16px;
+    font-size: 1rem !important;
+    margin-top: 12px;
+    margin-bottom: 1.5rem !important;
   }
   .sobre p {
-    font-size: 0.8rem !important;
+    font-size: 0.75rem !important;
     margin-bottom: 8px;
   }
 }
