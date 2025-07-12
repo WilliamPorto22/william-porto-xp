@@ -47,7 +47,9 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image: linear-gradient(to bottom, rgba(33,33,33,0.9) 0%, rgba(33,33,33,0.46) 100%), url('imagens/fundi.jpg.webp');
+  background-image:
+    linear-gradient(to bottom, rgba(33,33,33,0.9) 0%, rgba(33,33,33,0.46) 100%),
+    url('imagens/fundi.jpg.webp');
   background-size: cover;
   background-position: center;
 }
@@ -75,21 +77,22 @@ body::before {
 .container-principal h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: var(--spacing);
-  color: var(--secondary); /* mais escuro */
+  color: var(--secondary);
 }
 .container-principal h2 {
-  font-size: clamp(1rem, 3vw, 1.5rem); /* ajustado menor */
+  font-size: clamp(1rem, 3vw, 1.5rem);
   margin-bottom: calc(var(--spacing) * 1.5);
-  color: var(--primary); /* tom médio */
+  color: var(--primary);
 }
 .container-principal p {
   font-size: 0.75rem;
   margin-bottom: var(--spacing);
 }
 
-/* Ajuste de margem título do formulário */
+/* Ajuste de margem e cor do título do formulário */
 #form-titulo {
-  margin-bottom: calc(var(--spacing) * 2);
+  margin-bottom: calc(var(--spacing) * 3);
+  color: var(--secondary);
 }
 
 /* Avatar redondo */
@@ -174,9 +177,6 @@ button[type="submit"]:active {
   font-size: 1.12rem;
   margin-top: var(--spacing);
   margin-bottom: calc(var(--spacing) * 2);
-  color: var(--text-color); /* mais claro */
-}
-.sobre h3.alternate {
   color: var(--secondary);
 }
 .sobre p {
@@ -314,6 +314,9 @@ button[type="submit"]:active {
     font-size: 0.75rem !important;
     margin-bottom: 10px;
     line-height: 1.35;
+  }
+  #form-titulo {
+    margin-bottom: calc(var(--spacing) * 4) !important;
   }
   .image-container {
     width: 108px !important;
