@@ -111,6 +111,26 @@ body::before {
   border-radius: 50%;
   animation: fadeInUp calc(var(--anim-duration) / 2) var(--anim-ease) both;
 }
+
+.modal-message {
+  /* empilha em coluna e centraliza */
+  flex-direction: column;
+  text-align: center;
+  padding: 0; /* o padding maior vai pro <p> */
+}
+
+.modal-message p {
+  /* transforma cada parágrafo numa caixinha */
+  background: var(--bg-color);       /* mesmo tom do seu container */
+  color: var(--text-color);          /* texto legível */
+  padding: 1rem 1.5rem;              /* espaçamento interno */
+  border-radius: 8px;                /* cantos suavizados */
+  margin: 0.5rem 0;                  /* espaço entre as caixas */
+  max-width: 400px;                  /* não fica muito esticado em desktop */
+  width: 90%;                        /* responsivo em mobile */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
 .image-container img {
   width: 100%;
   height: 100%;
