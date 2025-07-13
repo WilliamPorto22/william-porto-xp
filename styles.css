@@ -37,19 +37,17 @@ h1 {
 }
 h2 {
   font-size: clamp(1rem, 3vw, 1.25rem);
-  margin-bottom: calc(var(--spacing) * 1);
+  margin-bottom: var(--spacing);
   color: var(--accent);
 }
 h3 {
   font-size: clamp(1rem, 3vw, 1.25rem);
-  margin-top: var(--spacing);
-  margin-bottom: calc(var(--spacing) * 2);
+  margin: var(--spacing) 0 calc(var(--spacing) * 2);
   color: var(--secondary);
 }
 h4 {
   font-size: clamp(0.875rem, 2.5vw, 1rem);
-  margin-top: var(--spacing);
-  margin-bottom: calc(var(--spacing) * 1.5);
+  margin: var(--spacing) 0 calc(var(--spacing) * 1.5);
   color: var(--accent);
 }
 
@@ -109,28 +107,8 @@ body::before {
   margin: var(--spacing) auto;
   overflow: hidden;
   border-radius: 50%;
-  animation: fadeInUp calc(var(--anim-duration) / 2) var(--anim-ease) both;
+  animation: fadeInUp calc(var(--anim-duration)/2) var(--anim-ease) both;
 }
-
-.modal-message {
-  /* empilha em coluna e centraliza */
-  flex-direction: column;
-  text-align: center;
-  padding: 0; /* o padding maior vai pro <p> */
-}
-
-.modal-message p {
-  /* transforma cada parágrafo numa caixinha */
-  background: var(--bg-color);       /* mesmo tom do seu container */
-  color: var(--text-color);          /* texto legível */
-  padding: 1rem 1.5rem;              /* espaçamento interno */
-  border-radius: 8px;                /* cantos suavizados */
-  margin: 0.5rem 0;                  /* espaço entre as caixas */
-  max-width: 400px;                  /* não fica muito esticado em desktop */
-  width: 90%;                        /* responsivo em mobile */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
 .image-container img {
   width: 100%;
   height: 100%;
@@ -211,7 +189,7 @@ button[type="submit"]:active {
 .navegacao {
   display: flex;
   gap: var(--spacing);
-  margin: calc(var(--spacing) * 2) auto;
+  margin: calc(var(--spacing)*2) auto;
   max-width: var(--max-width);
   justify-content: center;
   align-items: center;
@@ -259,8 +237,8 @@ button[type="submit"]:active {
   bottom: var(--spacing);
   right: var(--spacing);
   z-index: 10000;
-  width: clamp(48px, 6vw, 64px);
-  height: clamp(48px, 6vw, 64px);
+  width: clamp(48px,6vw,64px);
+  height: clamp(48px,6vw,64px);
   background: var(--whatsapp-color);
   border-radius: 50%;
   display: flex;
@@ -289,23 +267,17 @@ button[type="submit"]:active {
     box-shadow: none;
     border-radius: 0;
   }
-  h1 {
-    font-size: clamp(2.5rem, 8vw, 3rem);
-  }
-  h2 {
-    font-size: clamp(1rem, 6vw, 1.25rem);
-  }
-  h3 {
-    font-size: clamp(0.875rem, 4vw, 1rem);
-  }
+  h1 { font-size: clamp(2.5rem,8vw,3rem); }
+  h2 { font-size: clamp(1rem,6vw,1.25rem); }
+  h3 { font-size: clamp(0.875rem,4vw,1rem); }
   .container-principal p {
     font-size: 0.75rem;
     margin-bottom: 10px;
     line-height: 1.35;
   }
   .image-container {
-    width: clamp(150px, 40vw, 200px);
-    height: clamp(150px, 40vw, 200px);
+    width: clamp(150px,40vw,200px);
+    height: clamp(150px,40vw,200px);
   }
   .navegacao a {
     padding: 0.5rem 0.75rem;
@@ -340,22 +312,28 @@ button[type="submit"]:active {
   text-align: center;
 }
 
-/* === Modal de sucesso/erro === */
+/* === Modal de sucesso/erro atualizado === */
 .modal-message {
   position: fixed;
-  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: none;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.8);
-  padding: 1rem;
+  background: var(--bg-color);
+  border: 2px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 8px;
   z-index: 9999;
+  max-width: 90%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
 .modal-message p {
-  font-size: 1.25rem;
-  color: #ffffff;
-  text-align: center;
   margin: 0.5rem 0;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  text-align: center;
 }
 .modal-message.show {
   display: flex !important;
