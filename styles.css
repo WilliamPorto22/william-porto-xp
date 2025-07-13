@@ -230,8 +230,9 @@ button[type="submit"]:active {
   transform: translateY(-2px);
 }
 .redes-sociais img {
-  width: clamp(32px, 4vw, 48px);
-  height: clamp(32px, 4vw, 48px);
+  width: clamp(48px, 6vw, 64px);
+  height: clamp(48px, 6vw, 64px);
+  object-fit: contain;
 }
 
 /* Botão Flutuante WhatsApp */
