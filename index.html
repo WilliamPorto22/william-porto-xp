@@ -9,18 +9,13 @@
   <title>William Porto | Assessor de Investimentos XP</title>
   <meta name="description" content="William Porto é Assessor de Investimentos XP. Planejamento financeiro com método, proteção e constância para multiplicar seu patrimônio com liberdade e prosperidade.">
 
-  <!-- CSS crítico removido: todos os estilos migrados para styles.css -->
-
-  <!-- Preconnect & Preload -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- CSS Externo -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Preload Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
-  <link rel="preload" href="https://avel.me/wp-content/uploads/2021/06/logo-avel-xp-31.svg" as="image">
-
-  <noscript><link rel="stylesheet" href="styles.css"></noscript>
-
-  <!-- Fonte com display=swap -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
@@ -61,13 +56,13 @@
       </a>
     </nav>
 
-    <!-- Iframe oculto para submissão sem CORS -->
+    <!-- Iframe oculto para submissão -->
     <iframe name="hidden_iframe" id="hidden_iframe" hidden></iframe>
 
     <!-- Formulário de contato -->
     <section class="formulario" aria-labelledby="form-titulo">
       <h2>Quer aprender como grandes investidores pensam?</h2>
-      <h3>Preencha os dados abaixo e entrarei em contato com você</h3>
+      <h3 id="form-titulo">Preencha os dados abaixo e entrarei em contato com você</h3>
       <form id="contatoForm"
             action="https://formcarry.com/s/KzpmIQo0Dg_"
             method="POST"
@@ -81,22 +76,22 @@
         <div class="campo">
           <select id="patrimonioAtual" name="patrimonioAtual" aria-label="Patrimônio Atual" required>
             <option value="" disabled selected>Patrimônio Atual</option>
-            <option value="0-20000">R$ 0 – R$ 20.000,00</option>
-            <option value="20000-50000">R$ 20.000,00 – R$ 50.000,00</option>
-            <option value="50000-100000">R$ 50.000,00 – R$ 100.000,00</option>
-            <option value="100000-300000">R$ 100.000,00 – R$ 300.000,00</option>
-            <option value="300000-1000000">R$ 300.000,00 – R$ 1.000.000,00</option>
-            <option value=">1000000">Acima de R$ 1.000.000,00</option>
+            <option value="0-20000">R$ 0 – R$ 20.000,00</option>
+            <option value="20000-50000">R$ 20.000,00 – R$ 50.000,00</option>
+            <option value="50000-100000">R$ 50.000,00 – R$ 100.000,00</option>
+            <option value="100000-300000">R$ 100.000,00 – R$ 300.000,00</option>
+            <option value="300000-1000000">R$ 300.000,00 – R$ 1.000.000,00</option>
+            <option value=">1000000">Acima de R$ 1.000.000,00</option>
           </select>
         </div>
         <div class="campo">
           <select id="investimentoMensal" name="investimentoMensal" aria-label="Investimento Mensal Planejado" required>
             <option value="" disabled selected>Investimento Mensal</option>
-            <option value="0-500">R$ 0 – R$ 500,00</option>
-            <option value="500-1500">R$ 500,00 – R$ 1.500,00</option>
-            <option value="1500-5000">R$ 1.500,00 – R$ 5.000,00</option>
-            <option value="5000-10000">R$ 5.000,00 – R$ 10.000,00</option>
-            <option value=">10000">Acima de R$ 10.000,00</option>
+            <option value="0-500">R$ 0 – R$ 500,00</option>
+            <option value="500-1500">R$ 500,00 – R$ 1.500,00</option>
+            <option value="1500-5000">R$ 1.500,00 – R$ 5.000,00</option>
+            <option value="5000-10000">R$ 5.000,00 – R$ 10.000,00</option>
+            <option value=">10000">Acima de R$ 10.000,00</option>
           </select>
         </div>
         <div class="campo">
@@ -104,10 +99,8 @@
         </div>
         <input type="hidden" name="Concorda_com_compartilhamento_dados" value="Sim">
 
-        <!-- Botão de envio -->
-         <p class="consentimento">Ao enviar, você concorda com o uso de dados para contato.</p>
+        <p class="consentimento">Ao enviar, você concorda com o uso de dados para contato.</p>
         <button type="submit" class="btn btn--primary">Enviar</button>
-       
       </form>
     </section>
 
@@ -120,7 +113,7 @@
       >
     </div>
 
-    <!-- Links principais e botões estilizados -->
+    <!-- Links principais -->
     <section class="navegacao" aria-label="Links Principais">
       <div class="guia">
         <a href="https://cadastro.xpi.com.br/v3/cadastro/nome?assessor=A50498" class="btn btn--secondary">
@@ -140,17 +133,16 @@
       <p>
         Enquanto você decide se começa, o mercado não faz pausa; ele remunera quem age com <strong>método, proteção e constância</strong>. Eu desenho a estratégia, monitoro cada passo e ajusto a rota, você colhe a tranquilidade de ver seu patrimônio crescer sem adiar sonhos. <em>Se tempo é dinheiro, deixe o seu trabalhar para você a partir de agora.</em>
       </p>
-      <p>Ável | Assessoria credenciada à XP Investimentos<br>Premiada como TOP 1 XP 2024</p>
+      <p>Ável | Assessoria credenciada à XP Investimentos<br>Premiada como TOP 1 XP 2024</p>
     </section>
 
   </div>
 
   <!-- Botão Flutuante WhatsApp -->
-  <a href="https://api.whatsapp.com/send/?phone=5551993563021&type=phone_number&app_absent=0" class="btn btn--whatsapp btn--floating" aria-label="WhatsApp">
-    <img src="imagens/whats.webp" alt="WhatsApp" class="btn__icon">
+  <a href="https://api.whatsapp.com/send/?phone=5551993563021&type=phone_number&app_absent=0" class="btn--floating" aria-label="WhatsApp">
+    <img src="imagens/whats.webp" alt="WhatsApp">
   </a>
 
   <script src="script.js" defer></script>
 </body>
 </html>
-
