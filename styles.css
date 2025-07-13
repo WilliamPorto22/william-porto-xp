@@ -30,22 +30,30 @@ html {
 }
 
 /* Títulos globais */
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  margin-bottom: var(--spacing);
-  color: var(--primary);
-}
-h2 {
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  margin-bottom: calc(var(--spacing) * 1);
-  color: var(--accent);
-}
-h3 {
-  font-size: clamp(0.875rem, 2.5vw, 1rem);
-  margin-top: var(--spacing);
-  margin-bottom: calc(var(--spacing) * 2);
-  color: var(--secondary);
-}
+ h1 {
+   font-size: clamp(2.5rem, 6vw, 4rem);
+   margin-bottom: var(--spacing);
+   color: var(--primary);
+ }
+ h2 {
+   font-size: clamp(1rem, 3vw, 1.25rem);
+   margin-bottom: calc(var(--spacing) * 1);
+   color: var(--accent);
+ }
+ h3 {
+   /* agora corresponde ao tamanho de h2, mas mantém cor de h3 */
+   font-size: clamp(1rem, 3vw, 1.25rem);
+   margin-top: var(--spacing);
+   margin-bottom: calc(var(--spacing) * 2);
+   color: var(--secondary);
+ }
+ h4 {
+   /* herda tamanho antigo de h3 e usa cor de h2 */
+   font-size: clamp(0.875rem, 2.5vw, 1rem);
+   margin-top: var(--spacing);
+   margin-bottom: calc(var(--spacing) * 1.5);
+   color: var(--accent);
+ }
 
 /* Layout base */
 body {
