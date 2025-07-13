@@ -30,30 +30,28 @@ html {
 }
 
 /* Títulos globais */
- h1 {
-   font-size: clamp(2.5rem, 6vw, 4rem);
-   margin-bottom: var(--spacing);
-   color: var(--primary);
- }
- h2 {
-   font-size: clamp(1rem, 3vw, 1.25rem);
-   margin-bottom: calc(var(--spacing) * 1);
-   color: var(--accent);
- }
- h3 {
-   /* agora corresponde ao tamanho de h2, mas mantém cor de h3 */
-   font-size: clamp(1rem, 3vw, 1.25rem);
-   margin-top: var(--spacing);
-   margin-bottom: calc(var(--spacing) * 2);
-   color: var(--secondary);
- }
- h4 {
-   /* herda tamanho antigo de h3 e usa cor de h2 */
-   font-size: clamp(0.875rem, 2.5vw, 1rem);
-   margin-top: var(--spacing);
-   margin-bottom: calc(var(--spacing) * 1.5);
-   color: var(--accent);
- }
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: var(--spacing);
+  color: var(--primary);
+}
+h2 {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: calc(var(--spacing) * 1);
+  color: var(--accent);
+}
+h3 {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-top: var(--spacing);
+  margin-bottom: calc(var(--spacing) * 2);
+  color: var(--secondary);
+}
+h4 {
+  font-size: clamp(0.875rem, 2.5vw, 1rem);
+  margin-top: var(--spacing);
+  margin-bottom: calc(var(--spacing) * 1.5);
+  color: var(--accent);
+}
 
 /* Layout base */
 body {
@@ -205,7 +203,7 @@ button[type="submit"]:active {
   gap: 0.75rem;
   padding: 0.75rem 1.5rem;
   background: rgba(245,245,247,0.1);
-  border: 1px solid var(--primary);  /* atualizada para ouro */
+  border: 1px solid var(--primary);
   border-radius: 6px;
   color: var(--text-color);
   text-decoration: none;
@@ -215,20 +213,10 @@ button[type="submit"]:active {
   transition: background 0.25s var(--anim-ease), transform 0.2s var(--anim-ease);
 }
 .navegacao a:hover {
-  background: rgba(197,149,95,0.2);  /* hover com tom de ouro */
+  background: rgba(197,149,95,0.2);
   transform: translateY(-2px);
 }
 
-/* Redes sociais */
-.redes-sociais {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing);
-  margin-bottom: var(--spacing);
-}
-.redes-sociais a:hover {
-  transform: translateY(-2px);
-}
 /* Redes sociais */
 .redes-sociais {
   display: flex;
