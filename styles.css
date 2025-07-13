@@ -42,12 +42,12 @@ h2 {
 }
 h3 {
   font-size: clamp(1.25rem, 3vw, 1.75rem);
-  margin: var(--spacing) 0 calc(var(--spacing) * 1.5);
+  margin: var(--spacing) 0 var(--spacing);
   color: var(--secondary);
 }
 h4 {
   font-size: clamp(1rem, 2.5vw, 1.25rem);
-  margin: calc(var(--spacing) * 0.75) 0 var(--spacing);
+  margin: calc(var(--spacing) * 0.25) 0 calc(var(--spacing) * 1.5);
   color: var(--accent);
 }
 
@@ -293,15 +293,13 @@ button[type="submit"]:active {
   max-width: 600px; /* caixa maior no desktop */
   box-shadow: 0 8px 24px rgba(0,0,0,0.6);
 }
-
 .modal-message p {
   margin: 0.5rem 0;
   color: var(--text-color);
-  font-size: 1rem;   /* fonte menor */
+  font-size: 1rem;
   text-align: center;
   line-height: 1.4;
 }
-
 .modal-message.show {
   display: flex !important;
 }
@@ -316,7 +314,6 @@ button[type="submit"]:active {
     box-shadow: none;
     border-radius: 0;
   }
-
   h1 {
     font-size: clamp(2.5rem, 8vw, 3rem);
   }
@@ -325,13 +322,12 @@ button[type="submit"]:active {
   }
   h3 {
     font-size: clamp(1rem, 5vw, 1.25rem);
-    margin: calc(var(--spacing) * 0.75) 0 calc(var(--spacing) * 1);
+    margin: var(--spacing) 0 calc(var(--spacing) * 0.75);
   }
   h4 {
     font-size: clamp(0.875rem, 4vw, 1rem);
-    margin: var(--spacing) 0 calc(var(--spacing) * 0.75);
+    margin: calc(var(--spacing) * 0.25) 0 var(--spacing);
   }
-
   .container-principal p {
     font-size: 0.75rem;
     margin-bottom: 10px;
