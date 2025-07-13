@@ -319,3 +319,24 @@ button[type="submit"]:active {
   line-height: 1.5;
   text-align: center;
 }
+
+/* === Modal de sucesso/erro === */
+.modal-message {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.8);
+  padding: 1rem;
+  z-index: 9999;
+}
+.modal-message p {
+  font-size: 1.25rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+.modal-message.show {
+  display: flex !important;
+}
