@@ -240,8 +240,8 @@ button[type="submit"]:active {
   transform: translateY(-2px);
 }
 .redes-sociais img {
-  width: clamp(32px, 4vw, 48px);
-  height: clamp(32px, 4vw, 48px);
+  width: clamp(32px, 4vw, 48px) !important;
+  height: clamp(32px, 4vw, 48px) !important;
   object-fit: contain;
 }
 
