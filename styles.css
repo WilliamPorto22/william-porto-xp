@@ -318,35 +318,37 @@ button[type="submit"]:active {
   #form-titulo {
     margin-bottom: calc(var(--spacing) * 4) !important;
   }
+  /* Foto maior no mobile */
   .image-container {
-    width: 108px !important;
-    height: 108px !important;
+    width: clamp(150px, 40vw, 200px) !important;
+    height: clamp(150px, 40vw, 200px) !important;
     margin-bottom: 14px;
   }
-  .redes-sociais a img {
-    width: 36px !important;
-    height: 36px !important;
-  }
-  .avel-xp-logo img {
-    width: 140px !important;
-  }
-  .navegacao {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    gap: 10px;
-    margin: 20px 0 10px;
-  }
+  /* Botões menores */
   .navegacao a {
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
-    min-width: 180px;
-    max-width: 220px;
+    min-width: 140px;
+    max-width: 180px;
   }
-  button[type="submit"] {
+  /* Formulário ajustado */
+  .container-principal form {
     width: 100%;
-    padding: 12px 0;
-    font-size: 1rem;
+    max-width: 340px;
+    margin: 0 auto 2rem;
+  }
+  .campo input,
+  .campo select,
+  .campo textarea {
+    max-width: 100%;
+  }
+  /* Botão de envio mais compacto */
+  button[type="submit"] {
+    width: auto;
+    max-width: 140px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    margin: 0.75rem auto var(--spacing);
   }
   .sobre h3 {
     font-size: 1rem !important;
