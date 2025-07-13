@@ -45,7 +45,6 @@
 
     <!-- Redes sociais -->
     <nav class="redes-sociais" aria-label="Redes Sociais">
-      
       <a href="mailto:william.porto@avel.me">
         <img src="imagens/email.webp" alt="Email" width="48" height="48" loading="lazy">
       </a>
@@ -107,18 +106,17 @@
         <button type="submit" class="btn btn--primary">Enviar</button>
       </form>
 
-        <!-- Mensagem de sucesso -->
-      <div id="successMessage" class="success-message" hidden>
-        <p>🎉 Obrigado! Seu formulário foi enviado com sucesso.</p>
+      <!-- Mensagem de sucesso (modal) -->
+      <div id="successMessage" class="modal-message" aria-live="polite">
+        <p>Obrigado! Seu formulário foi enviado com sucesso.</p>
         <p>O Assessor <strong>William Porto</strong> entrará em contato em breve.</p>
       </div>
     </section>
 
-    <div id="erroMessage" class="success-message" style="display: none;" aria-live="polite">
+    <!-- Mensagem de erro (modal) -->
+    <div id="erroMessage" class="modal-message" aria-live="polite">
       <p>Houve um erro ao enviar sua mensagem, tente novamente mais tarde.</p>
     </div>
-
-    </section>
 
     <!-- Logo Ável XP acima dos CTAs -->
     <div class="avel-xp-logo">
@@ -162,6 +160,3 @@
   <script src="script.js" defer></script>
 </body>
 </html>
-
-
-    
