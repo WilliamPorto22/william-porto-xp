@@ -3,11 +3,11 @@
 
 :root {
   --font: 'Poppins', sans-serif;
-  --bg-color: #1d2025;      /* carvão suave */
-  --text-color: #e3e7ea;     /* cinza‑claro */
-  --primary:   #2e8b57;      /* esmeralda */
-  --accent:    #5dade2;      /* prata azulada */
-  --secondary: #bdc3c7;      /* prata metálico */
+  --bg-color: #121d2a;      /* navy profundo */
+  --text-color: #f5f5f7;     /* off-white suave */
+  --primary:   #c59d5f;      /* gold elegante */
+  --accent:    #627d98;      /* azul suave para links/hover */
+  --secondary: #a1863e;      /* bronze suave */
   --whatsapp-color: #25d366;
   --spacing:   16px;
   --max-width: 1000px;
@@ -65,7 +65,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(to bottom, rgba(29,32,37,0.85) 0%, rgba(29,32,37,0.65) 100%),
+    linear-gradient(to bottom, rgba(18,29,42,0.85) 0%, rgba(18,29,42,0.65) 100%),
     url('imagens/fundi.jpg.webp');
   background-size: cover;
   background-position: center;
@@ -196,8 +196,8 @@ button[type="submit"]:active {
   justify-content: center;
   gap: 0.75rem;
   padding: 0.75rem 1.5rem;
-  background: rgba(227,231,234,0.1);
-  border: 1px solid var(--accent);
+  background: rgba(245,245,247,0.1);
+  border: 1px solid var(--primary);  /* atualizada para ouro */
   border-radius: 6px;
   color: var(--text-color);
   text-decoration: none;
@@ -207,7 +207,7 @@ button[type="submit"]:active {
   transition: background 0.25s var(--anim-ease), transform 0.2s var(--anim-ease);
 }
 .navegacao a:hover {
-  background: rgba(93,173,226,0.2);
+  background: rgba(197,149,95,0.2);  /* hover com tom de ouro */
   transform: translateY(-2px);
 }
 
