@@ -41,13 +41,13 @@ h2 {
   color: var(--accent);
 }
 h3 {
-  font-size: clamp(1rem, 3vw, 1.25rem);
-  margin: var(--spacing) 0 calc(var(--spacing) * 2);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  margin: var(--spacing) 0 calc(var(--spacing) * 1.5);
   color: var(--secondary);
 }
 h4 {
-  font-size: clamp(0.875rem, 2.5vw, 1rem);
-  margin: var(--spacing) 0 calc(var(--spacing) * 1.5);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin: calc(var(--spacing) * 0.75) 0 var(--spacing);
   color: var(--accent);
 }
 
@@ -124,6 +124,9 @@ body::before {
 .campo {
   margin-bottom: 1rem;
 }
+.campo label {
+  color: var(--text-color);
+}
 .campo input,
 .campo select,
 .campo textarea {
@@ -135,6 +138,12 @@ body::before {
   color: var(--text-color);
   border: 1px solid var(--primary);
   border-radius: 4px;
+}
+.campo input::placeholder,
+.campo textarea::placeholder,
+.campo select::placeholder {
+  color: var(--text-color);
+  opacity: 0.8;
 }
 .campo select { appearance: none; }
 .campo option {
@@ -257,52 +266,6 @@ button[type="submit"]:active {
   display: block;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  html { font-size: 14px; }
-  .container-principal {
-    width: 98vw;
-    max-width: 100vw;
-    padding: 18px 4vw;
-    box-shadow: none;
-    border-radius: 0;
-  }
-  h1 { font-size: clamp(2.5rem,8vw,3rem); }
-  h2 { font-size: clamp(1rem,6vw,1.25rem); }
-  h3 { font-size: clamp(0.875rem,4vw,1rem); }
-  .container-principal p {
-    font-size: 0.75rem;
-    margin-bottom: 10px;
-    line-height: 1.35;
-  }
-  .image-container {
-    width: clamp(150px,40vw,200px);
-    height: clamp(150px,40vw,200px);
-  }
-  .navegacao a {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
-    min-width: 140px;
-    max-width: 180px;
-  }
-  .container-principal form {
-    width: 100%;
-    max-width: 340px;
-    margin: 0 auto 2rem;
-  }
-  .campo input,
-  .campo select,
-  .campo textarea {
-    max-width: 100%;
-  }
-  button[type="submit"] {
-    max-width: 140px;
-    padding: 10px 16px;
-    font-size: 0.95rem;
-    margin: 0.75rem auto var(--spacing);
-  }
-}
-
 /* Seção "Sobre" */
 .sobre p {
   max-width: 600px;
@@ -341,4 +304,63 @@ button[type="submit"]:active {
 
 .modal-message.show {
   display: flex !important;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  html { font-size: 14px; }
+  .container-principal {
+    width: 98vw;
+    max-width: 100vw;
+    padding: 18px 4vw;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 3rem);
+  }
+  h2 {
+    font-size: clamp(1rem, 6vw, 1.25rem);
+  }
+  h3 {
+    font-size: clamp(1rem, 5vw, 1.25rem);
+    margin: calc(var(--spacing) * 0.75) 0 calc(var(--spacing) * 1);
+  }
+  h4 {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+    margin: var(--spacing) 0 calc(var(--spacing) * 0.75);
+  }
+
+  .container-principal p {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+  .image-container {
+    width: clamp(150px, 40vw, 200px);
+    height: clamp(150px, 40vw, 200px);
+  }
+  .navegacao a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    min-width: 140px;
+    max-width: 180px;
+  }
+  .container-principal form {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 2rem;
+  }
+  .campo input,
+  .campo select,
+  .campo textarea {
+    max-width: 100%;
+  }
+  button[type="submit"] {
+    max-width: 140px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    margin: 0.75rem auto var(--spacing);
+  }
 }
