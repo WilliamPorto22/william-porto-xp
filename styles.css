@@ -5,7 +5,7 @@
   --font: 'Poppins', sans-serif;
   --bg-color: #0e1116;
   --text-color: #ececec;
-  --primary: #3DA6F2;
+  --primary: #3da6f2;
   --secondary: #1e7ec8;
   --whatsapp-color: #25d366;
   --spacing: 16px;
@@ -254,6 +254,22 @@ button[type="submit"]:active {
 /* Responsivo */
 @media (max-width: 600px) {
   html { font-size: 14px; }
+  /* Hierarquia de títulos mobile */
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 3rem);
+    color: var(--text-color);
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    color: var(--secondary);
+    margin-bottom: 6px;
+  }
+  h3 {
+    font-size: clamp(0.875rem, 4vw, 1rem);
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
   .container-principal {
     width: 98vw;
     max-width: 100vw;
@@ -268,9 +284,8 @@ button[type="submit"]:active {
   }
   /* Foto maior no mobile */
   .image-container {
-    width: clamp(150px, 40vw, 200px) !important;
-    height: clamp(150px, 40vw, 200px) !important;
-    margin-bottom: 14px;
+    width: clamp(150px, 40vw, 200px);
+    height: clamp(150px, 40vw, 200px);
   }
   /* Botões menores */
   .navegacao a {
